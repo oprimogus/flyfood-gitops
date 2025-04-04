@@ -38,10 +38,10 @@ spec:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         revision: main
         directories:
-          - path: k8s/apps/**/
+          - path: k8s/apps/*
   template:
     metadata:
-      name: '{{path[1]}}-{{path[3]}}'
+      name: '{{.path.basename}}'
     spec:
       project: default
       source:
