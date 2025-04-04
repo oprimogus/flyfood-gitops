@@ -19,6 +19,8 @@ spec:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         targetRevision: HEAD
         path: '{{path}}'
+        directory:
+          recurse: true
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.components[1]}}'
@@ -26,4 +28,3 @@ spec:
         automated:
           prune: true
           selfHeal: true
-
