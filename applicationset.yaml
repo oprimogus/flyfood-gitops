@@ -12,7 +12,7 @@ spec:
           - path: "k8s/**/prd"
   template:
     metadata:
-      name: '{{path.components[1]}}-{{path.components[2]}}'
+      name: '{{path.basename}}-{{path.basenameNormalized}}'
     spec:
       project: default
       source:
