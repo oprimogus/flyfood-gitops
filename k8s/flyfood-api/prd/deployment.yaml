@@ -20,5 +20,11 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: NODE_ENV
+            - name: ENVIRONMENT
               value: "production"
+            
+            - name: API_PORT
+              value: "3000"
+            
+            - name: API_SERVICE_NAME
+              value: "flyfood-api"
