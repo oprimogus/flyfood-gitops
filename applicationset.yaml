@@ -41,7 +41,7 @@ spec:
           - path: k8s/apps/*
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{path.basename}}'
     spec:
       project: default
       source:
