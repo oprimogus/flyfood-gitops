@@ -1,28 +1,59 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: all-apps
+#   namespace: argocd
+# spec:
+#   generators:
+#     - git:
+#         repoURL: https://github.com/oprimogus/flyfood-gitops.git
+#         revision: HEAD
+#         directories:
+#           - path: k8s/**/prd
+#   template:
+#     metadata:
+#       name: '{{path.basename}}-{{path.basenameNormalized}}'
+#     spec:
+#       project: default
+#       source:
+#         repoURL: https://github.com/oprimogus/flyfood-gitops.git
+#         targetRevision: HEAD
+#         path: '{{path}}'
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: default
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
+
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: all-apps
-  namespace: argocd
 spec:
   generators:
     - git:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
-        revision: HEAD
+        revision: main
         directories:
-          - path: k8s/**/prd
+          - path: k8s/*/*/prd
   template:
     metadata:
-      name: '{{path.basename}}-{{path.basenameNormalized}}'
+      name: '{{path[1]}}-{{path[2]}}-{{path[3]}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
-        targetRevision: HEAD
+        targetRevision: main
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: '{{path[1]}}-{{path[2]}}-{{path[3]}}'
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+
