@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: flyfood-api
-          image: oprimogusreal/cardapiogo-api:latest
+          image: nginxdemos/hello:latest
           ports:
             - containerPort: 80
           env:
