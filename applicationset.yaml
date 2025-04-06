@@ -11,6 +11,7 @@ spec:
         directories:
           - path: k8s/apps/*
           - path: k8s/infrastructure/*
+          - path: k8s/secrets/*
   template:
     metadata:
       name: '{{path.basename}}'
