@@ -1,0 +1,8 @@
+name: sealed-secrets
+repoURL: https://github.com/oprimogus/flyfood-gitops.git
+targetRevision: main
+chart: sealed-secrets
+namespace: sealed-secrets
+values: |
+  fullnameOverride: sealed-secrets-new
+  namespaceOverride: sealed-secrets
