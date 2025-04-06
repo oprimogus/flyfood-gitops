@@ -1,8 +1,8 @@
 name: sealed-secrets
-repoURL: https://charts.bitnami.com/bitnami
-targetRevision: 2.5.9
+repoURL: https://bitnami-labs.github.io/sealed-secrets
+targetRevision: 2.17.2
 chart: sealed-secrets
 namespace: sealed-secrets
 values: |
-  fullnameOverride: sealed-secrets-new
+  fullnameOverride: sealed-secrets
   namespaceOverride: sealed-secrets
