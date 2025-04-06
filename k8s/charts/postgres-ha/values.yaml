@@ -1,22 +1,10 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: postgresql-ha
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/oprimogus/flyfood-gitops
-    path: charts/postgresql-ha
-    targetRevision: main
-    helm:
-      values: |
-        readinessProbe:
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 5
-          failureThreshold: 6
-
+name: postgresql-ha
+repoURL: https://charts.bitnami.com/bitnami
+targetRevision: 15.3.8
+chart: postgresql-ha
+namespace: postgresql-ha
+values: |
+  values: |
         postgresql:
           username: postgres
           password: postgres
@@ -72,12 +60,4 @@ spec:
           
         metrics:
           enabled: true
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: postgresql-ha
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+  
