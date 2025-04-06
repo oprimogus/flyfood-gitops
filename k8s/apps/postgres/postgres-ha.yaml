@@ -8,27 +8,57 @@ spec:
   source:
     chart: postgresql-ha
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 12.5.0  # Ajuste para a versão mais recente conforme necessário
+    targetRevision: 15.3.8
     helm:
       values: |
         postgresql:
           username: postgres
-          password: postgres  # Em produção, use secrets!
+          password: postgres
           database: postgres
           repmgrUsername: repmgr
-          repmgrPassword: repmgr  # Em produção, use secrets!
+          repmgrPassword: repmgr
           repmgrDatabase: repmgr
-        
+          
+          # Configurando o nome do host
+          hostName: postgresql-ha-postgresql
+          hostDomain: postgresql-ha.svc.cluster.local
+          
         pgpool:
           adminUsername: admin
-          adminPassword: admin  # Em produção, use secrets!
-        
+          adminPassword: admin
+          
+          # Configurações específicas do pgpool para resolver problemas de conexão
+          tls:
+            enabled: false
+            
+          # Configuração explícita de hosts
+          postgresql:
+            # Definir os hosts do PostgreSQL explicitamente
+            # Isso é crítico para resolver o erro "Name or service not known"
+            hosts:
+            - name: postgresql-ha-postgresql-0
+              domain: postgresql-ha.svc.cluster.local
+            - name: postgresql-ha-postgresql-1
+              domain: postgresql-ha.svc.cluster.local
+            
+          # Configuração para o sr_check
+          srCheck:
+            username: repmgr
+            password: repmgr
+            database: postgres
+          
+          # Log level aumentado para depuração
+          logConnections: true
+          logHostname: true
+          logPerNodeStatement: true
+          
+        # Configurações gerais
         persistence:
           size: 8Gi
-        
+          
         service:
           type: ClusterIP
-        
+          
         metrics:
           enabled: true
   destination:
