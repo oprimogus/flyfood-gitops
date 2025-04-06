@@ -1,18 +1,17 @@
-# apps/db/postgres-cluster.yaml
-apiVersion: postgres-operator.crunchydata.com/v1beta1
-kind: PostgresCluster
-metadata:
-  name: flyfood-db
-  namespace: postgres
-spec:
-  postgresVersion: 17
-  instances:
-    - replicas: 3
-  users:
-    - name: postgres
-      password:
-        secretRef:
-          name: pg-secret
-  patroni:
-    dynamicConfiguration:
-      synchronous_mode: true
+# apiVersion: postgres-operator.crunchydata.com/v1beta1
+# kind: PostgresCluster
+# metadata:
+#   name: flyfood-db
+#   namespace: postgres
+# spec:
+#   postgresVersion: 17
+#   instances:
+#     - replicas: 3
+#   users:
+#     - name: postgres
+#       password:
+#         secretRef:
+#           name: pg-secret
+#   patroni:
+#     dynamicConfiguration:
+#       synchronous_mode: true
