@@ -1,18 +1,7 @@
-# infrastructure/postgres-operator/argocd-app.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: crunchy-postgres-operator
-spec:
-  project: default
-  source:
-    repoURL: https://charts.crunchydata.com/
-    chart: pgo
-    targetRevision: 5.4.2
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: postgres-operator
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+apiVersion: v2
+name: postgres-operator
+version: 1.0.0
+dependencies:
+  - name: pgo
+    version: 5.4.2
+    repository: https://charts.crunchydata.com/
