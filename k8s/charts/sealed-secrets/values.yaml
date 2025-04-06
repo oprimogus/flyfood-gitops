@@ -1,5 +1,5 @@
 name: sealed-secrets
-repoURL: https://github.com/oprimogus/flyfood-gitops.git
+repoURL: https://charts.bitnami.com/bitnami
 targetRevision: 2.17.2
 chart: sealed-secrets
 namespace: sealed-secrets
