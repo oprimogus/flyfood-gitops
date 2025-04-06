@@ -11,6 +11,12 @@ spec:
     targetRevision: main
     helm:
       values: |
+        readinessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 6
+
         postgresql:
           username: postgres
           password: postgres
