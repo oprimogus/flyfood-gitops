@@ -6,7 +6,6 @@ metadata:
 spec:
   project: default
   source:
-    chart: postgresql-ha
     repoURL: https://github.com/oprimogus/flyfood-gitops
     path: charts/postgresql-ha
     targetRevision: main
