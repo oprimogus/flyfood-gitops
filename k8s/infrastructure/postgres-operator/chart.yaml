@@ -1,7 +1,10 @@
-apiVersion: v2
-name: postgres-operator
-version: 1.0.0
-dependencies:
-  - name: pgo
-    version: 5.4.2
-    repository: https://charts.crunchydata.com/
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: my-postgresql
+  namespace: operators
+spec:
+  channel: v5
+  name: postgresql
+  source: operatorhubio-catalog
+  sourceNamespace: olm
