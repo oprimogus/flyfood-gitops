@@ -8,7 +8,7 @@ spec:
   source:
     chart: postgresql-ha
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 17.4.0
+    targetRevision: 15.3.8
     helm:
       values: |
         postgresql:
@@ -55,6 +55,9 @@ spec:
         # Configurações gerais
         persistence:
           size: 8Gi
+
+        volumePermissions:
+          enabled: true
           
         service:
           type: ClusterIP
