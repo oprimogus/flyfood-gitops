@@ -1,5 +1,5 @@
 name: postgresql-ha
-repoURL: https://charts.bitnami.com/bitnami
+repoURL: oci://registry-1.docker.io/bitnamicharts
 targetRevision: 15.3.8
 chart: postgresql-ha
 namespace: postgresql-ha
