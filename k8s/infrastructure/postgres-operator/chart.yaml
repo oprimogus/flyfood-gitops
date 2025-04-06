@@ -1,7 +1,7 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: my-postgresql
+  name: crunchy-postgresql
   namespace: operators
 spec:
   channel: v5
