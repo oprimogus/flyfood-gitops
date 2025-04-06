@@ -40,6 +40,8 @@ spec:
               domain: postgresql-ha.svc.cluster.local
             - name: postgresql-ha-postgresql-1
               domain: postgresql-ha.svc.cluster.local
+            - name: postgresql-ha-postgresql-2
+              domain: postgresql-ha.svc.cluster.local
             
           # Configuração para o sr_check
           srCheck:
