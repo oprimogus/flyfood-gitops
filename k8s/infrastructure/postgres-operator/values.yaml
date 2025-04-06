@@ -1,4 +1,0 @@
-# k8s/infrastructure/postgres-operator/values.yaml
-pgo:
-  metadata:
-    namespace: postgres-operator

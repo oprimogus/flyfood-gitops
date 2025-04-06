@@ -10,7 +10,6 @@ spec:
         revision: main
         directories:
           - path: k8s/apps/*
-          - path: k8s/infrastructure/*
           - path: k8s/secrets/*
   template:
     metadata:
@@ -21,13 +20,15 @@ spec:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         targetRevision: main
         path: '{{path}}'
+        helm:
+          valueFiles:
+            - values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: '{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-

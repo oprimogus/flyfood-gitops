@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql-ha
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: postgresql-ha
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 12.5.0  # Ajuste para a versão mais recente conforme necessário
+    helm:
+      values: |
+        postgresql:
+          username: postgres
+          password: postgres  # Em produção, use secrets!
+          database: postgres
+          repmgrUsername: repmgr
+          repmgrPassword: repmgr  # Em produção, use secrets!
+          repmgrDatabase: repmgr
+        
+        pgpool:
+          adminUsername: admin
+          adminPassword: admin  # Em produção, use secrets!
+        
+        persistence:
+          size: 8Gi
+        
+        service:
+          type: ClusterIP
+        
+        metrics:
+          enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: postgresql-ha
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
