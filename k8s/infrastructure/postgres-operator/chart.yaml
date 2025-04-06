@@ -1,18 +1,18 @@
-# apps/db/postgres-cluster.yaml
-apiVersion: postgres-operator.crunchydata.com/v1beta1
-kind: PostgresCluster
+# infrastructure/postgres-operator/argocd-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: flyfood-dv
-  namespace: postgres
+  name: crunchy-postgres-operator
 spec:
-  postgresVersion: 17
-  instances:
-    - replicas: 3
-  users:
-    - name: postgres
-      password:
-        secretRef:
-          name: pg-secret
-  patroni:
-    dynamicConfiguration:
-      synchronous_mode: true
+  project: default
+  source:
+    repoURL: https://charts.crunchydata.com/
+    chart: pgo
+    targetRevision: 5.4.2
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: postgres-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
