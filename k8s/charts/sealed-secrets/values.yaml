@@ -1,6 +1,6 @@
 name: sealed-secrets
 repoURL: https://charts.bitnami.com/bitnami
-targetRevision: 2.17.2
+targetRevision: 2.5.9
 chart: sealed-secrets
 namespace: sealed-secrets
 values: |
