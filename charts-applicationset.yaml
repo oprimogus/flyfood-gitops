@@ -1,31 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: all-apps
+  name: helm-charts
   namespace: argocd
 spec:
   generators:
     - git:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         revision: main
-        directories:
-          - path: k8s/apps/*
-          - path: k8s/secrets/*
+        files:
+          - path: k8s/charts/*
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/oprimogus/flyfood-gitops.git
-        targetRevision: main
-        path: '{{path}}'
+        repoURL: '{{repoURL}}'
+        targetRevision: '{{targetRevision}}'
+        chart: '{{chart}}'
         helm:
-          valueFiles:
-            - values.yaml
+          values: |
+            {{values}}
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
