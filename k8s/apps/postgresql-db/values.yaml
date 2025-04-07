@@ -1,4 +1,5 @@
 postgresql:
+    usePasswordFiles: false
     existingSecret: postgres-admin-secret
     username: POSTGRES_USERNAME
     password: POSTGRES_PASSWORD
