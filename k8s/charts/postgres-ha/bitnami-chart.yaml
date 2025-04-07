@@ -1,0 +1,7 @@
+name: postgresql-ha
+repoURL: oci://registry-1.docker.io/bitnamicharts/postgresql-ha
+targetRevision: 15.3.8
+chart: postgresql-ha
+namespace: postgresql-ha
+valuesFiles:
+  - values.yaml

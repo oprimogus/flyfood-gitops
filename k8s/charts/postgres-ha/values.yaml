@@ -1,0 +1,53 @@
+postgresql:
+    username: postgres
+    password: postgres
+    database: postgres
+    repmgrUsername: repmgr
+    repmgrPassword: repmgr
+    repmgrDatabase: repmgr
+    
+    # Configurando o nome do host
+    hostName: postgresql-ha-postgresql
+    hostDomain: postgresql-ha.svc.cluster.local
+pgpool:
+    adminUsername: admin
+    adminPassword: admin
+    
+    # Configurações específicas do pgpool para resolver problemas de conexão
+    tls:
+      enabled: false
+      
+    # Configuração explícita de hosts
+    postgresql:
+      # Definir os hosts do PostgreSQL explicitamente
+      # Isso é crítico para resolver o erro "Name or service not known"
+      hosts:
+      - name: postgresql-ha-postgresql-0
+        domain: postgresql-ha.svc.cluster.local
+      - name: postgresql-ha-postgresql-1
+        domain: postgresql-ha.svc.cluster.local
+      - name: postgresql-ha-postgresql-2
+        domain: postgresql-ha.svc.cluster.local
+      
+    # Configuração para o sr_check
+    srCheck:
+      username: repmgr
+      password: repmgr
+      database: postgres
+    
+    # Log level aumentado para depuração
+    logConnections: true
+    logHostname: true
+    logPerNodeStatement: true
+  # Configurações gerais
+persistence:
+  size: 8Gi
+
+volumePermissions:
+  enabled: true
+  
+service:
+  type: ClusterIP
+  
+metrics:
+  enabled: true
