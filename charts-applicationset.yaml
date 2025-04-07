@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - git:
-        repoURL: https://github.com/oprimogus/flyfood-gitops.git
-        revision: main
-        files:
-          - path: k8s/charts/*
+  - git:
+      repoURL: https://github.com/oprimogus/flyfood-gitops.git
+      revision: main
+      files:
+      - path: k8s/charts/*
   template:
     metadata:
       name: '{{name}}'
@@ -30,4 +30,4 @@ spec:
           prune: true
           selfHeal: true
         syncOptions:
-          - CreateNamespace=true
+        - CreateNamespace=true

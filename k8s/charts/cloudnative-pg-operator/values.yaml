@@ -1,0 +1,8 @@
+name: cnpg-operator
+repoURL: https://cloudnative-pg.github.io/charts
+targetRevision: "*"
+chart: cloudnative-pg
+namespace: cnpg-system
+values: |
+  config:
+    clusterWide: true
