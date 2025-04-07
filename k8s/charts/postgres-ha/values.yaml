@@ -1,7 +1,7 @@
 name: postgresql-ha
-repoURL: oci://registry-1.docker.io/bitnamicharts
-targetRevision: 15.3.8
-chart: postgresql-ha
+repoURL: https://cloudnative-pg.io/charts/
+targetRevision: 0.23.2
+chart: cloudnative-pg
 namespace: postgresql-ha
 values: |
   values: |
