@@ -1,6 +1,6 @@
 name: pg-cluster
 repoURL: https://cloudnative-pg.github.io/charts
-targetRevision: 0.23.2
+targetRevision: 0.2.1
 chart: cluster
 namespace: database
 values: |
