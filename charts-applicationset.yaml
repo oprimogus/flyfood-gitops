@@ -33,4 +33,5 @@ spec:
         - CreateNamespace=true
           {{- if eq .serverSideApply "true" }}
         - ServerSideApply=true
+        - ForceApply=true
           {{- end }}
