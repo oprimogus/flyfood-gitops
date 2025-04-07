@@ -1,17 +1,19 @@
 postgresql:
-    username: postgres
-    password: postgres
+    existingSecret: postgres-admin-secret
+    username: POSTGRES_USERNAME
+    password: POSTGRES_PASSWORD
     database: postgres
-    repmgrUsername: repmgr
-    repmgrPassword: repmgr
+    repmgrUsername: REPMGR_USERNAME
+    repmgrPassword: REPMGR_PASSWORD
     repmgrDatabase: repmgr
     
     # Configurando o nome do host
     hostName: postgresql-ha-postgresql
     hostDomain: postgresql-ha.svc.cluster.local
 pgpool:
-    adminUsername: admin
-    adminPassword: admin
+    existingSecret: postgres-admin-secret
+    adminUsername: PGPOOL_USERNAME
+    adminPassword: PGPOOL_PASSWORD
     
     # Configurações específicas do pgpool para resolver problemas de conexão
     tls:
