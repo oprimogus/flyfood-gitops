@@ -3,6 +3,7 @@ repoURL: https://cloudnative-pg.github.io/charts
 targetRevision: "*"
 chart: cloudnative-pg
 namespace: cnpg-system
+serverSideApply: true
 values: |
   config:
     clusterWide: true
