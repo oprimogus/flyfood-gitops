@@ -1,9 +1,9 @@
-# name: cnpg-operator
-# repoURL: https://cloudnative-pg.github.io/charts
-# targetRevision: 0.23.2
-# chart: cloudnative-pg
-# namespace: cnpg-system
-# serverSideApply: true
-# values: |
-#   config:
-#     clusterWide: true
+name: cnpg-operator
+repoURL: https://cloudnative-pg.github.io/charts
+targetRevision: 0.23.2
+chart: cloudnative-pg
+namespace: cnpg-system
+serverSideApply: true
+values: |
+  config:
+    clusterWide: true
