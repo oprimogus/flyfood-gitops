@@ -6,7 +6,9 @@ Este repositório contém a configuração GitOps do projeto **Flyfood**, utiliz
 
 ```bash
 flyfood-gitops/
-├── apps-applicationset.yaml         # ApplicationSet do ArgoCD
+├── apps-applicationset.yaml               # ApplicationSet do ArgoCD p/ apps
+├── charts-applicationset.yaml             # ApplicationSet do ArgoCD p/ charts
+├── selead-secrets-applicationset.yaml     # ApplicationSet do ArgoCD p/ secrets
 ├── charts/
 │   └── postgresql-ha/               # Helm chart para PostgreSQL HA
 ├── k8s/
