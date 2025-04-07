@@ -1,7 +1,23 @@
-name: postgresql-ha
-repoURL: oci://registry-1.docker.io/bitnamicharts/postgresql-ha
-targetRevision: 15.3.8
-chart: postgresql-ha
-namespace: postgresql-ha
-valuesFiles:
-  - values.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql-ha
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/oprimogus/flyfood-gitops
+    path: charts/postgresql-ha
+    targetRevision: main
+    helm:
+      valueFiles:
+      - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: postgresql-ha
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
