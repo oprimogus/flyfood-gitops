@@ -1,0 +1,7 @@
+name: postgresql-ha
+repoURL: https://cloudnative-pg.io/charts/
+targetRevision: 0.23.2
+chart: cloudnative-pg
+namespace: postgresql-ha
+valuesFiles:
+  - values.yaml
