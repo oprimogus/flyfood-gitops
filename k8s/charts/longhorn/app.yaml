@@ -5,4 +5,4 @@ chart: longhorn
 namespace: argocd
 values: |
   preUpgradeChecker:
-  jobEnabled: false
+    jobEnabled: false
