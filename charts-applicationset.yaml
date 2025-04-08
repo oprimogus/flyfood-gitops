@@ -13,6 +13,7 @@ spec:
   template:
     metadata:
       name: '{{name}}'
+      namespace: '{{namespace}}'
     spec:
       project: default
       source:
@@ -32,4 +33,3 @@ spec:
         syncOptions:
         - CreateNamespace=true
         - ServerSideApply=true
-        - ForceApply=true

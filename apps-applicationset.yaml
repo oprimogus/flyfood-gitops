@@ -15,10 +15,10 @@ spec:
       name: '{{path.basename}}'
     spec:
       project: default
-      source:
-        repoURL: https://github.com/oprimogus/flyfood-gitops.git
-        targetRevision: main
-        path: '{{path}}'
+      sources:
+        - repoURL: https://github.com/oprimogus/flyfood-gitops.git
+          targetRevision: main
+          path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
