@@ -14,7 +14,7 @@ spec:
     metadata:
       name: '{{path.basename}}'
     spec:
-      project: default
+      project: apps
       sources:
         - repoURL: https://github.com/oprimogus/flyfood-gitops.git
           targetRevision: main
