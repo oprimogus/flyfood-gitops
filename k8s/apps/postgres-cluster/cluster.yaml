@@ -3,10 +3,21 @@ kind: Cluster
 metadata:
   name: postgres-cluster
 spec:
+  # Imagem do postgres
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.4-8-bookworm
+  # Instâncias
   instances: 3
-  primaryUpdateStrategy: unsupervised
+  # Controle de users
+  managed:
+    roles:
+    - name: flyfood_api
+      login: true
+      passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
+        name: flyfood-db-secret
+  # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
   storage:
     storageClass: longhorn
+    # Size define o tamanho de cada  instancia. Exemplo: 40Gi x 3 instances = 120Gi
     size: 40Gi
   monitoring:
     enablePodMonitor: true
