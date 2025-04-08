@@ -3,5 +3,3 @@ repoURL: https://charts.longhorn.io
 targetRevision: 1.8.1
 chart: longhorn
 namespace: longhorn-system
-values:
-
