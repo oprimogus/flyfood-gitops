@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Database
 metadata:
-  name: postgres-cluster
+  name: flyfood-db
 spec:
   name: flyfood_db
   owner: flyfood_api
