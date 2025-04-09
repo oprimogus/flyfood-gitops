@@ -21,6 +21,12 @@ resources:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
 
+health:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+
 env:
   DB_HOST: postgres-cluster-r.default.svc.cluster.local
   DB_PORT: 5432
