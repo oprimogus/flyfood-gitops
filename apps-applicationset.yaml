@@ -16,12 +16,12 @@ spec:
     spec:
       project: apps
       source:
-        repoURL: https://github.com/oprimogus/flyfood-gitops.git
+        repoURL: https://oprimogus.github.io/helm-charts/
         targetRevision: main
-        path: charts/generic-application
+        path: generic-application
         helm:
           valueFiles:
-            - '{{path}}/values.yaml'
+            - k8s/apps/{{path.basename}}/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
