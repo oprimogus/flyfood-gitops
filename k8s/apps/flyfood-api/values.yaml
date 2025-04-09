@@ -37,9 +37,9 @@ env:
   # SQLCDEBUG: "0"
 
 secrets:
-  - name: DB_NAME
-    secret: flyfood-api-secret
-    key: DB_NAME
+  # - name: DB_NAME
+  #   secret: flyfood-api-secret
+  #   key: DB_NAME
   
   - name: DB_USERNAME
     secret: flyfood-db-secret
