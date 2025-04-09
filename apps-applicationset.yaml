@@ -16,12 +16,12 @@ spec:
     spec:
       project: apps
       source:
-        repoURL: https://oprimogus.github.io/helm-charts/
-        targetRevision: main
-        path: generic-application
+        repoURL: https://oprimogus.github.io/helm-charts/generic-application  # Repositório Helm
+        chart: generic-application                          # Nome do chart
+        targetRevision: 0.1.0                               # Versão do chart (do index.yaml)
         helm:
           valueFiles:
-            - k8s/apps/{{path.basename}}/values.yaml
+            - k8s/apps/{{path.basename}}/values.yaml        # Valores vindo do seu repositório GitOps
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
