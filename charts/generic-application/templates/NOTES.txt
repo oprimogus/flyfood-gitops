@@ -1,0 +1,9 @@
+Your app {{ .Release.Name }} is deployed!
+
+Access it by:
+
+  kubectl port-forward svc/{{ include "generic-application.fullname" . }} 8080:80
+
+Then navigate to:
+
+  http://localhost:8080

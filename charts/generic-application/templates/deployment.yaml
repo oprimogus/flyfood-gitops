@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "generic-application.fullname" . }}
+  labels:
+    app: {{ include "generic-application.name" . }}
+spec:
+  replicas: {{ .Values.resources.autoscaling.minReplicas }}
+  selector:
+    matchLabels:
+      app: {{ include "generic-application.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "generic-application.name" . }}
+    spec:
+      {{- if not .Values.resources.autoscaling.enable }}
+      replicas: {{ .Values.resources.autoscaling.minReplicas }}
+      {{- end }}
+      containers:
+        - name: {{ .Values.applicationName }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: server
+              containerPort: {{ .Values.port }}
+          {{- if .Values.env }}
+          env:
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $value }}
+            {{- end }}
+
+            {{- range .Values.secrets }}
+            - name: {{ .name }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .secret }}
+                  key: {{ .key }}
+            {{- end }}
+          {{- end }}
+          {{- if .Values.flags }}
+          args:
+            {{- range $key, $value := .Values.flags }}
+            - --{{ $key }}={{ $value }}
+            {{- end }}
+          {{- end }}
+          resources:
+            requests:
+              cpu: {{ .Values.resources.min.cpu }}
+              memory: {{ .Values.resources.min.memory }}
+            limits:
+              cpu: {{ .Values.resources.max.cpu }}
+              memory: {{ .Values.resources.max.memory }}
+
+          {{- if .Values.health.liveness.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.health.liveness.path }}
+              port: {{ .Values.health.liveness.port }}
+            initialDelaySeconds: {{ .Values.health.liveness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.health.liveness.periodSeconds }}
+            successThreshold: {{ .Values.health.liveness.successThreshold }}
+            failureThreshold: {{ .Values.health.liveness.failureThreshold }}
+            timeoutSeconds: {{ .Values.health.liveness.timeoutSeconds }}
+          {{- end }}
+
+          {{- if .Values.health.readiness.enabled }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.health.readiness.path }}
+              port: {{ .Values.health.readiness.port }}
+            initialDelaySeconds: {{ .Values.health.readiness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.health.readiness.periodSeconds }}
+            successThreshold: {{ .Values.health.readiness.successThreshold }}
+            failureThreshold: {{ .Values.health.readiness.failureThreshold }}
+          {{- end }}

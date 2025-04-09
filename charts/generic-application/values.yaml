@@ -1,0 +1,120 @@
+# The name of the application
+applicationName: generic-api
+
+# Image configuration for the container
+image: 
+  # Repository where the image is stored
+  repository: hello-world
+  # Pull policy for the image: IfNotPresent means the image will only be pulled if it isn’t already present locally
+  pullPolicy: IfNotPresent
+  # Tag/version of the image to use
+  tag: latest
+
+# The port on which your application listens for incoming requests
+port: 3000
+
+# Health checks configuration which includes liveness, readiness, and metrics probes
+health:
+  liveness:
+    # Enables the liveness probe, which checks if the application is running
+    enabled: true
+    # Port to use for the liveness probe (here, 'server' refers to a named port inside the container)
+    port: server
+    # URL path that liveness probe will check to determine if the application is healthy
+    path: /health/liveness
+    # How frequently (in seconds) the liveness check will be performed
+    periodSeconds: 10
+    # Delay (in seconds) before the first liveness check is performed after the container starts
+    initialDelaySeconds: 30
+    # Number of successful responses required to consider the container healthy after it was marked unhealthy
+    successThreshold: 1
+    # Number of consecutive failed liveness checks for the container to be deemed unhealthy
+    failureThreshold: 3
+    # The maximum number of seconds to allow for each liveness check to complete
+    timeoutSeconds: 30
+
+  readiness:
+    # Enables the readiness probe, which checks if the application is ready to accept traffic
+    enabled: true
+    # Port to use for the readiness probe (similar to liveness, 'server' is a named container port)
+    port: server
+    # URL path that readiness probe will check to determine if the application is ready to serve requests
+    path: /health/readiness
+    # Frequency (in seconds) for issuing readiness checks
+    periodSeconds: 5
+    # Delay (in seconds) before the first readiness check is performed after the container starts
+    initialDelaySeconds: 40
+    # Minimum number of consecutive successful checks required to mark the container as ready
+    successThreshold: 1
+    # Number of consecutive failed readiness checks after which the container is marked as not ready
+    failureThreshold: 5
+
+  metrics:
+    # Port to use for serving the application's metrics (again, 'server' is the named port)
+    port: server
+    # URL path where the application's metrics endpoint is exposed
+    path: /metrics
+    # How often to scrape metrics from the application (e.g., by Prometheus)
+    scrapeInterval: 30s
+
+# Configuration for resource requests and limits
+resources:
+  min:
+    # Minimum amount of CPU required (100 milliCPU)
+    cpu: 100m
+    # Minimum memory required (128 MiB)
+    memory: 128Mi
+  max:
+    # Maximum allowable CPU usage (200 milliCPU)
+    cpu: 200m
+    # Maximum allowable memory usage (256 MiB)
+    memory: 256Mi
+  autoscaling:
+    # Enable or disable Horizontal Pod Autoscaling (HPA)
+    enable: true
+    # Minimum number of replicas to run at any given time
+    minReplicas: 1
+    # Maximum number of replicas that HPA can scale out to
+    maxReplicas: 2
+    # Target average CPU utilization percentage; if exceeded, HPA might scale out the pods
+    targetCPUUtilizationPercentage: 80
+    # Target average memory utilization percentage; if exceeded, HPA might scale out the pods
+    targetMemoryUtilizationPercentage: 80
+
+ingress:
+  # -- Enable ingress resource
+  enabled: false
+  # -- The host to route traffic to (e.g., api.example.com)
+  host: app.example.com
+  # -- Ingress class to use (Traefik, Nginx, etc.)
+  ingressClassName: traefik
+  # -- Optional TLS settings
+  tls: false
+  tlsSecretName: ""
+  # -- Annotations for the ingress resource (useful for Cloudflare Tunnel or cert-manager)
+  annotations: 
+    # kubernetes.io/ingress.class: nginx
+    # external-dns.alpha.kubernetes.io/hostname: app.example.com
+    # tunnel.cloudflare.com: "true"
+
+
+# Environment variables to be injected into the container
+# The key represents the environment variable name and the value is its assigned value.
+# Example usage:
+# env:
+#   MY_ENV: 123
+#   MY_ENV2: abc
+env: {}
+
+# Example usage:
+# secrets:
+#   - name: env-name-1
+#     secret: my-secret-1
+#     key: username
+#   - name: env-name-2
+#     secret: my-secret-1
+#     key: password
+secrets: {}
+
+# Additional flags can be provided here if necessary.
+flags: {}
