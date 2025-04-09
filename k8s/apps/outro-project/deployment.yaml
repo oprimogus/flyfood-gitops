@@ -1,30 +1,55 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: outro-prd
-#   labels:
-#     app: outro-prd
-# spec:
-#   replicas: 2
-#   selector:
-#     matchLabels:
-#       app: outro-prd
-#   template:
-#     metadata:
-#       labels:
-#         app: outro-prd
-#     spec:
-#       containers:
-#         - name: outro-prd
-#           image: nginxdemos/hello:latest
-#           ports:
-#             - containerPort: 80
-#           env:
-#             - name: ENVIRONMENT
-#               value: "production"
-            
-#             - name: API_PORT
-#               value: "3000"
-            
-#             - name: API_SERVICE_NAME
-#               value: "flyfood-api"
+name: flyfood-api2
+
+image:
+  repository: oprimogusreal/cardapiogo-api
+  pullPolicy: IfNotPresent
+  tag: latest
+
+port: 3000
+
+resources:
+  min:
+    cpu: 100m
+    memory: 128Mi
+  max:
+    cpu: 500m
+    memory: 256Mi
+  autoscaling:
+    enable: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
+
+health:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+
+env:
+  DB_HOST: postgres-cluster-r.postgres-cluster.svc.cluster.local
+  DB_PORT: 5432
+
+  API_PORT: 3000
+  API_SERVICE_NAME: flyfood-api
+  ENVIRONMENT: production
+  SQLCDEBUG: 0
+
+secrets:
+  - name: DB_NAME
+    secret: flyfood-api-secret
+    key: DB_NAME
+  
+  - name: DB_USERNAME
+    secret: flyfood-db-secret
+    key: username
+
+  - name: DB_PASSWORD
+    secret: flyfood-db-secret
+    key: password  
+
+ingress:
+  enabled: true
+  host: flyfood.com.br
+  path: /api
