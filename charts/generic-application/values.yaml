@@ -86,6 +86,8 @@ ingress:
   enabled: false
   # -- The host to route traffic to (e.g., api.example.com)
   host: app.example.com
+  # -- Path to access
+  path: /
   # -- Ingress class to use (Traefik, Nginx, etc.)
   ingressClassName: traefik
   # -- Optional TLS settings
