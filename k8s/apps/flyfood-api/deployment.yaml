@@ -1,30 +1,67 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: flyfood-api
-  labels:
-    app: flyfood-api
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: flyfood-api
-  template:
-    metadata:
-      labels:
-        app: flyfood-api
-    spec:
-      containers:
-        - name: flyfood-api
-          image: nginxdemos/hello:latest
-          ports:
-            - containerPort: 80
-          env:
-            - name: ENVIRONMENT
-              value: "production"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: flyfood-api
+#   labels:
+#     app: flyfood-api
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app: flyfood-api
+#   template:
+#     metadata:
+#       labels:
+#         app: flyfood-api
+#     spec:
+#       containers:
+#         - name: flyfood-api
+#           image: nginxdemos/hello:latest
+#           resources:
+#             requests:
+#               cpu: "100m"
+#               memory: "128Mi"
+#             limits:
+#               cpu: "500m"
+#               memory: "256Mi"
+#           ports:
+#             - containerPort: 300
+#           env:
+#             # - name: ENVIRONMENT
+#             #   value: "production"
             
-            - name: API_PORT
-              value: "3000"
+#             # - name: API_PORT
+#             #   value: "3000"
             
-            - name: API_SERVICE_NAME
-              value: "flyfood-api"
+#             # - name: API_SERVICE_NAME
+#             #   value: "flyfood-api"
+
+#             - name: DB_HOST
+#               value: "postgres-cluster-r.default.svc.cluster.local"
+
+#             - name: DB_PORT
+#               value: "5432"
+
+#             - name: DB_NAME
+#               valueFrom:
+#                 secretKeyRef:
+#                   name: flyfood-api-secret
+#                   key: DB_NAME
+            
+#             - name: DB_USERNAME
+#               valueFrom:
+#                 secretKeyRef:
+#                   name: flyfood-db-secret
+#                   key: username
+            
+#             - name: DB_PASSWORD
+#               valueFrom:
+#                 secretKeyRef:
+#                   name: flyfood-db-secret
+#                   key: password
+
+#             # - name: SECRET_KEY
+#             #   valueFrom:
+#             #     secretKeyRef:
+#             #       name: flyfood-api-secret
+#             #       key: SECRET_KEY

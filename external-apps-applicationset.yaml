@@ -9,19 +9,15 @@ spec:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         revision: main
         directories:
-          - path: k8s/apps/*
+          - path: k8s/external-apps/*
   template:
     metadata:
       name: '{{path.basename}}'
     spec:
-      project: apps
+      project: external-apps
       source:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         targetRevision: main
-        path: charts/generic-application
-        helm:
-          valueFiles:
-            - '{{path}}/values.yaml'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
