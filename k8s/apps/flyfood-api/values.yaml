@@ -22,13 +22,13 @@ resources:
     targetMemoryUtilizationPercentage: 80
 
 env:
-  DB_HOST: "postgres-cluster-r.default.svc.cluster.local"
-  DB_PORT: "5432"
+  DB_HOST: postgres-cluster-r.default.svc.cluster.local
+  DB_PORT: 5432
 
-  API_PORT: "3000"
-  API_SERVICE_NAME: "flyfood-api"
-  ENVIRONMENT: 'production'
-  SQLCDEBUG: "0"
+  API_PORT: 3000
+  API_SERVICE_NAME: flyfood-api
+  ENVIRONMENT: production
+  SQLCDEBUG: 0
 
 secrets:
   - name: DB_NAME
