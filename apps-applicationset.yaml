@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: apps
+  name: all-apps
   namespace: argocd
 spec:
   generators:
@@ -14,14 +14,17 @@ spec:
     metadata:
       name: '{{path.basename}}'
     spec:
-      project: apps
-      source:
-        repoURL: https://oprimogus.github.io/helm-charts/generic-application  # Repositório Helm
-        chart: generic-application                          # Nome do chart
-        targetRevision: 0.1.0                               # Versão do chart (do index.yaml)
-        helm:
-          valueFiles:
-            - k8s/apps/{{path.basename}}/values.yaml        # Valores vindo do seu repositório GitOps
+      project: default
+      sources:
+        - repoURL: https://oprimogus.github.io/helm-charts
+          chart: generic-application
+          targetRevision: 0.1.0
+          helm:
+            valueFiles:
+              - $values/k8s/apps/{{path.basename}}/values.yaml
+        - repoURL: https://github.com/oprimogus/flyfood-gitops.git
+          targetRevision: main
+          ref: values
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
