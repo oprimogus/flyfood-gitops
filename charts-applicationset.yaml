@@ -12,7 +12,7 @@ spec:
       - path: k8s/charts/*
   template:
     metadata:
-      name: '{{name}}'
+      name: '{{path.basename}}-{{path.filename}}'
       namespace: argocd
     spec:
       project: default
@@ -25,7 +25,7 @@ spec:
             {{values}}
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: '{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
