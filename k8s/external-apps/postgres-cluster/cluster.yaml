@@ -4,7 +4,11 @@ metadata:
   name: postgres-cluster
 spec:
   # Imagem do postgres
-  imageName: ghcr.io/cloudnative-pg/postgresql:17.4-8-bookworm
+  imageCatalogRef:
+    apiGroup: postgresql.cnpg.io
+    kind: ImageCatalog
+    name: postgresql
+    major: 17
   # Instâncias
   instances: 3
   # Controle de users
