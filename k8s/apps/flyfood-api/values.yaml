@@ -29,7 +29,7 @@ health:
 
 env:
   DB_HOST: postgres-cluster-r.postgres-cluster.svc.cluster.local
-  # DB_PORT: 5432
+  DB_PORT: 5432
 
   # API_PORT: "3000"
   API_SERVICE_NAME: flyfood-api
