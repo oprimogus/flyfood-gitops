@@ -42,12 +42,12 @@ secrets:
     key: DB_NAME
   
   - name: DB_USERNAME
-    secret: flyfood-db-secret
-    key: username
+    secret: flyfood-api-secret
+    key: DB_USERNAME
 
   - name: DB_PASSWORD
-    secret: flyfood-db-secret
-    key: password  
+    secret: flyfood-api-secret
+    key: DB_PASSWORD  
 
 ingress:
   enabled: true
