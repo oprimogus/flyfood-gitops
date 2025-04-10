@@ -35,11 +35,11 @@ secrets:
     key: token
 
 args:
-  - tunnel
-  - --no-autoupdate
-  - run
-  - --token
-  - $(TOKEN)
+  - "tunnel"
+  - "--no-autoupdate"
+  - "run"
+  - "--token"
+  - "$(TOKEN)"
 
 ingress:
   enabled: false
