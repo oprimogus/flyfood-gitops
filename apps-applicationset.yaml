@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: all-apps
+  name: apps
   namespace: argocd
 spec:
   generators:
@@ -24,10 +24,10 @@ spec:
           targetRevision: 0.1.0
           helm:
             valueFiles:
-              - $values/k8s/apps/{{path.basename}}/*.values.yaml
+              - $values/k8s/apps/{{path.dirname | path.basename}}/{{path.basename}}/values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{.Values.namespace}}'
+        namespace: '{{path.basename}}'  # pega o ambiente automaticamente
       syncPolicy:
         automated:
           prune: true
