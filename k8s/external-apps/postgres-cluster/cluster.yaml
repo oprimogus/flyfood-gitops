@@ -14,7 +14,7 @@ spec:
       login: true
       passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
         name: flyfood-db-secret
-    - name: pg_test
+    - name: pg_user_test
       login: true
       passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
         name: pg-test-secret
