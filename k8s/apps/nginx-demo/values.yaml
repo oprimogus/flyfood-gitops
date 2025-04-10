@@ -5,7 +5,7 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
-port: 3000
+port: 80
 
 resources:
   min:
