@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       name: '{{name}}'
-      namespace: '{{namespace}}'
+      namespace: argocd
     spec:
       project: default
       source:
