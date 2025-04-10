@@ -1,14 +1,4 @@
-# ------------------------------------
-# Gerador Interativo de SealedSecrets
-# ------------------------------------
-#
-# Uso:
-#   make secret    - Inicia o assistente interativo para criar um SealedSecret
-#   make help      - Exibe ajuda sobre como usar o comando
-
-.PHONY: secret help
-
-# Ajuda para o comando secret
+# Na seção help, adicione informação sobre o namespace
 help:
 	@echo "📚 Gerador Interativo de SealedSecrets"
 	@echo "------------------------------------------------"
@@ -16,13 +6,14 @@ help:
 	@echo ""
 	@echo "O comando irá guiá-lo através de um processo interativo para criar um SealedSecret:"
 	@echo "  1. Digite o nome do secret (sem o sufixo '-secret', ele será adicionado automaticamente)"
-	@echo "  2. Informe os nomes das variáveis de ambiente, separados por espaço"
-	@echo "  3. Digite o valor para cada variável (entrada oculta)"
-	@echo "  4. Selecione o tipo do secret a partir de uma lista de opções"
+	@echo "  2. Informe o namespace onde o secret será aplicado"
+	@echo "  3. Informe os nomes das variáveis de ambiente, separados por espaço"
+	@echo "  4. Digite o valor para cada variável (entrada oculta)"
+	@echo "  5. Selecione o tipo do secret a partir de uma lista de opções"
 	@echo ""
 	@echo "O SealedSecret será salvo em k8s/secrets/<nome>-secret.yaml"
 
-# Gera um SealedSecret completamente de forma interativa
+# Na seção secret, adicione a pergunta sobre namespace após o nome
 secret:
 	@# Verifica dependências
 	@command -v kubectl >/dev/null 2>&1 || { echo "❌ kubectl não encontrado. Instale-o primeiro."; exit 1; }
@@ -40,6 +31,14 @@ secret:
 		fi; \
 		secret_name="$$name-secret"; \
 		echo "✅ Nome do secret definido: $$secret_name"; \
+		\
+		# Solicita o namespace \
+		printf "👉 Digite o namespace para o secret [default]: "; \
+		read namespace; \
+		if [ -z "$$namespace" ]; then \
+			namespace="default"; \
+		fi; \
+		echo "✅ Namespace definido: $$namespace"; \
 		\
 		# Solicita as variáveis de ambiente \
 		printf "👉 Digite os nomes das variáveis separados por espaço (ex: API_KEY DB_PASS): "; \
@@ -107,6 +106,7 @@ secret:
 		# Gera o SealedSecret \
 		echo "🛠️  Executando kubectl e kubeseal..."; \
 		kubectl create secret generic $$secret_name $$temp_args \
+			--namespace=$$namespace \
 			--type=$$type \
 			--dry-run=client -o json | \
 		kubeseal \
@@ -117,4 +117,5 @@ secret:
 		echo ""; \
 		echo "✅ SealedSecret criado com sucesso!"; \
 		echo "📄 Arquivo salvo em: k8s/secrets/$$secret_name.yaml"; \
+		echo "🔹 Namespace: $$namespace"; \
 	'
