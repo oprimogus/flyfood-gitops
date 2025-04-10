@@ -24,10 +24,10 @@ spec:
           targetRevision: 0.1.0
           helm:
             valueFiles:
-              - $values/k8s/apps/{{path.basename}}/{{namespace}}-values.yaml
+              - $values/k8s/apps/{{path.basename}}/*.values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: '{{.Values.namespace}}'
       syncPolicy:
         automated:
           prune: true
