@@ -141,7 +141,7 @@ secret:
 			--type=$$type \
 			--dry-run=client -o json | \
 		kubeseal \
-			--controller-namespace sealed-secrets \
+			--controller-namespace infra \
 			--controller-name sealed-secrets \
 			--format yaml > "$$output_file"; \
 		echo ""; \
