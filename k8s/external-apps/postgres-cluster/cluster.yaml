@@ -13,10 +13,6 @@ spec:
       login: true
       passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
         name: flyfood-db-secret
-    - name: user-test
-      login: true
-      passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
-        name: user-test-secret
   # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
   storage:
     storageClass: longhorn

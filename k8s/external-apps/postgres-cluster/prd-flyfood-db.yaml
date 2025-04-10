@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: prd-flyfood-db
+  namespace: infra
+spec:
+  name: prd_flyfood_db
+  owner: flyfood_api
+  cluster:
+    name: postgres-cluster
