@@ -1,4 +1,5 @@
 name: flyfood-api
+namespace: prd
 
 image:
   repository: oprimogusreal/cardapiogo-api
@@ -28,7 +29,7 @@ health:
     enabled: true
 
 env:
-  DB_HOST: postgres-cluster-r.default.svc.cluster.local
+  DB_HOST: postgres-cluster-r.prd.svc.cluster.local
   DB_PORT: 5432
 
   API_PORT: 3000

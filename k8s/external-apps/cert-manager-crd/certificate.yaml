@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: meu-certificado
+  namespace: default
+spec:
+  secretName: meu-cert-tls
+  issuerRef:
+    name: letsencrypt-cloudflare
+    kind: ClusterIssuer
+  commonName: exemplo.seudominio.com
+  dnsNames:
+  - exemplo.seudominio.com

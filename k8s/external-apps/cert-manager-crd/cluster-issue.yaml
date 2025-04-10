@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-cloudflare
+  namespace: infra
 spec:
   acme:
     email: gustavo081900@gmail.com
@@ -14,4 +15,4 @@ spec:
           email: gustavo081900@gmail.com
           apiTokenSecretRef:
             name: cloudflared-secret
-            key: token
+            key: dns-api-token

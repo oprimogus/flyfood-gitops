@@ -2,6 +2,6 @@ name: cert-manager
 repoURL: https://charts.jetstack.io
 targetRevision: 1.17.1
 chart: cert-manager
-namespace: cert-manager
+namespace: infra
 values: |
   installCRDs: true
