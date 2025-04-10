@@ -2,7 +2,7 @@ name: flyfood-api
 
 image:
   repository: oprimogusreal/cardapiogo-api
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: latest
 
 port: 3000
