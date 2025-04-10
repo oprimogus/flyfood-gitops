@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-dev
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/oprimogus/flyfood-gitops.git
+        revision: main
+        directories:
+          - path: k8s/apps/*
+  template:
+    metadata:
+      name: '{{path.basename}}-dev'
+    spec:
+      project: default
+      sources:
+        - repoURL: https://github.com/oprimogus/flyfood-gitops.git
+          targetRevision: main
+          ref: values
+        - repoURL: https://oprimogus.github.io/helm-charts
+          chart: generic-application
+          targetRevision: 0.1.0
+          helm:
+            valueFiles:
+              - $values/k8s/apps/{{path.basename}}/prd-values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: dev
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: apps
+  name: apps-prd
   namespace: argocd
 spec:
   generators:
@@ -12,7 +12,7 @@ spec:
           - path: k8s/apps/*
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path.basename}}-prd'
     spec:
       project: default
       sources:
@@ -24,10 +24,10 @@ spec:
           targetRevision: 0.1.0
           helm:
             valueFiles:
-              - $values/k8s/apps/{{path.dirname | path.basename}}/{{path.basename}}/values.yaml
+              - $values/k8s/apps/{{path.basename}}/dev-values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'  # pega o ambiente automaticamente
+        namespace: prd
       syncPolicy:
         automated:
           prune: true
