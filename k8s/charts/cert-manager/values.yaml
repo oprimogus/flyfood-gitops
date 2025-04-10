@@ -3,3 +3,5 @@ repoURL: https://charts.jetstack.io
 targetRevision: 1.17.1
 chart: cert-manager
 namespace: cert-manager
+values: |
+  installCRDs: true
