@@ -1,7 +1,7 @@
 name: nginxdemo
 
 image:
-  repository: nginxdemos/hello:latest
+  repository: nginxdemos/hello
   pullPolicy: IfNotPresent
   tag: latest
 
