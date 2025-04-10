@@ -1,0 +1,37 @@
+name: nginxdemo2
+
+image:
+  repository: nginxdemos/hello
+  pullPolicy: IfNotPresent
+  tag: latest
+
+port: 80
+
+resources:
+  min:
+    cpu: 100m
+    memory: 128Mi
+  max:
+    cpu: 500m
+    memory: 256Mi
+  autoscaling:
+    enable: true
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
+
+health:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+
+env:
+
+secrets:
+
+ingress:
+  enabled: true
+  host: flyfood.com.br
+  path: /nginx-demo-2
