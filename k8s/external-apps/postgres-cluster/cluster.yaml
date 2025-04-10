@@ -8,7 +8,7 @@ spec:
     apiGroup: postgresql.cnpg.io
     kind: ImageCatalog
     name: postgresql
-    major: 17
+    major: 16
   # Instâncias
   instances: 3
   # Controle de users
