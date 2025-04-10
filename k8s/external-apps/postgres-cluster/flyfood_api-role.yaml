@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Role
+metadata:
+  name: flyfood-api-role
+spec:
+  cluster: postgres-cluster
+  name: flyfood_api
+  login: true
+  passwordSecret:
+    name: flyfood-db-secret
