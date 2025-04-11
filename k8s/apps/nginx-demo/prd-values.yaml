@@ -33,5 +33,7 @@ secrets:
 
 ingress:
   enabled: true
+  tls: true
+  tlsSecretName: cert-tls
   host: flyfood.com.br
   path: /nginx-demo
