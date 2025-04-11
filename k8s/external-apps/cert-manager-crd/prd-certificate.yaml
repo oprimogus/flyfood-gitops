@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cert
+  namespace: prd
+spec:
+  secretName: cert-tls
+  issuerRef:
+    name: letsencrypt-cloudflare-prd
+    kind: ClusterIssuer
+  commonName: flyfood.com.br
+  dnsNames:
+  - flyfood.com.br
