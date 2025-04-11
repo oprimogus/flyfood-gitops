@@ -16,6 +16,6 @@ spec:
   # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
   storage:
     storageClass: longhorn
-    size: 20Gi
+    size: 10Gi
   monitoring:
     enablePodMonitor: true
