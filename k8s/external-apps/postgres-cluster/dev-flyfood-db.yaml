@@ -5,6 +5,6 @@ metadata:
   namespace: infra
 spec:
   name: dev_flyfood_db
-  owner: flyfood_api
+  owner: dev_flyfood_api
   cluster:
     name: postgres-cluster
