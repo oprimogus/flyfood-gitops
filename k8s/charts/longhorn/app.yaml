@@ -2,7 +2,9 @@ name: longhorn
 repoURL: https://charts.longhorn.io/
 targetRevision: 1.8.1
 chart: longhorn
-namespace: infra
+namespace: longhorn-system
 values: |
   preUpgradeChecker:
     jobEnabled: false
+  defaultSettings:
+    baseUrl: http://longhorn-backend.longhorn-system.svc.cluster.local:9500
