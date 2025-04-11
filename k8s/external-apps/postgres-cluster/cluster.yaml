@@ -15,7 +15,7 @@ spec:
         name: flyfood-db-secret
   # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
   storage:
-    storageClass: longhorn
+    # storageClass: longhorn
     size: 20Gi
   monitoring:
     enablePodMonitor: true
