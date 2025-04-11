@@ -29,7 +29,7 @@ health:
     enabled: true
 
 env:
-  DB_HOST: postgres-cluster-r.prd.svc.cluster.local
+  DB_HOST: postgres-cluster-r.infra.svc.cluster.local
   DB_PORT: 5432
 
   API_PORT: 3000
