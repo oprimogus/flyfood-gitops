@@ -40,15 +40,15 @@ env:
 
 secrets:
   - name: DB_NAME
-    secret: flyfood-api-secret
+    secret: flyfood-db-secret
     key: DB_NAME
   
   - name: DB_USERNAME
-    secret: flyfood-api-secret
+    secret: flyfood-db-secret
     key: DB_USERNAME
 
   - name: DB_PASSWORD
-    secret: flyfood-api-secret
+    secret: flyfood-db-secret
     key: DB_PASSWORD  
 
 ingress:
