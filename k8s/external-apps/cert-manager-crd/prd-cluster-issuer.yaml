@@ -2,7 +2,6 @@ apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-cloudflare-prd
-  namespace: infra
 spec:
   acme:
     email: gustavo081900@gmail.com
