@@ -1,0 +1,5 @@
+name: cloudnative-pg-operator
+repoURL: https://cloudnative-pg.github.io/charts
+targetRevision: main
+chart: cnpg/cloudnative-pg
+namespace: infra
