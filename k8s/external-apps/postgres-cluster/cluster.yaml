@@ -16,7 +16,6 @@ spec:
   # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
   storage:
     storageClass: longhorn
-    # Size define o tamanho de cada  instancia. Exemplo: 40Gi x 3 instances = 120Gi
-    size: 40Gi
+    size: 20Gi
   monitoring:
     enablePodMonitor: true
