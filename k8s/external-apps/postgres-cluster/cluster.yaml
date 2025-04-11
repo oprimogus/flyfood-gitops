@@ -1,20 +1,20 @@
-# apiVersion: postgresql.cnpg.io/v1
-# kind: Cluster
-# metadata:
-#   name: postgres-cluster
-#   namespace: infra
-# spec:
-#   # Instâncias
-#   instances: 3
-#   # Controle de users
-#   managed:
-#     roles:
-#     - name: flyfood_api
-#       login: true
-#       passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
-#         name: flyfood-db-secret
-#   # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
-#   storage:
-#     size: 20Gi
-#   monitoring:
-#     enablePodMonitor: true
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres-cluster
+  namespace: infra
+spec:
+  # Instâncias
+  instances: 3
+  # Controle de users
+  managed:
+    roles:
+    - name: flyfood_api
+      login: true
+      passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
+        name: flyfood-db-secret
+  # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
+  storage:
+    size: 20Gi
+  monitoring:
+    enablePodMonitor: true
