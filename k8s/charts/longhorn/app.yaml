@@ -6,3 +6,5 @@ namespace: longhorn-system
 values: |
   preUpgradeChecker:
     jobEnabled: false
+  defaultSettings:
+  baseUrl: http://longhorn-backend.longhorn-system.svc.cluster.local:9500
