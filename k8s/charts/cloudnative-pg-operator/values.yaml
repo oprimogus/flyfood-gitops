@@ -1,4 +1,7 @@
-name: cloudnative-pg-operator
+name: cnpg
 repoURL: https://cloudnative-pg.github.io/charts
-chart: cnpg/cloudnative-pg
-namespace: infra
+chart: cloudnative-pg
+namespace: cnpg-system
+values: |
+  monitoring:
+    enablePodMonitor: true
