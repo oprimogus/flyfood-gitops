@@ -12,27 +12,36 @@ values: |
       ExternalDomain: zitadel.flyfood.com.br
       TLS:
         Enabled: true
-      Database:
-        Postgres:
-          Host: postgres-cluster-rw.infra.svc.cluster.local
-          Port: 5432
-          Database: zitadel-db
-          MaxOpenConns: 20
-          MaxIdleConns: 10
-          MaxConnLifetime: 30m
-          MaxConnIdleTime: 5m
     env:
+      - name: ZITADEL_DATABASE_POSTGRES_HOST
+        valueFrom:
+          secretKeyRef:
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_HOST
+      
+      - name: ZITADEL_DATABASE_POSTGRES_PORT
+        valueFrom:
+          secretKeyRef:
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_PORT
+
+      - name: ZITADEL_DATABASE_POSTGRES_DATABASE
+        valueFrom:
+          secretKeyRef:
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_PORT
+      
       - name: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
         valueFrom:
           secretKeyRef:
-            name: zitadel-db-secret
-            key: username
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
 
       - name: ZITADEL_DATABASE_POSTGRES_USER_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: zitadel-db-secret
-            key: password
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_USER_PASSWORD
 
       - name: ZITADEL_DATABASE_POSTGRES_ADMIN_EXISTINGDATABASE
         valueFrom:
@@ -43,14 +52,14 @@ values: |
       - name: ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME
         valueFrom:
           secretKeyRef:
-            name: postgres-cluster-app
-            key: username
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME
 
       - name: ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: postgres-cluster-app
-            key: password
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD
 
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
