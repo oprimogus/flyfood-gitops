@@ -21,14 +21,6 @@ values: |
           MaxIdleConns: 10
           MaxConnLifetime: 30m
           MaxConnIdleTime: 5m
-          User:
-            Username: zitadel
-            SSL:
-              Mode: verify-full
-          Admin:
-            Username: postgres
-            SSL:
-              Mode: verify-full
     env:
       - name: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
         valueFrom:
