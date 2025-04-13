@@ -7,7 +7,6 @@ values: |
   zitadel:
     initContainers: []
     masterkeySecretName: zitadel-masterkey-secret
-    envVarsSecret: zitadel-vars-secrets
     configmapConfig:
       ExternalSecure: true
       ExternalDomain: zitadel.flyfood.com.br
