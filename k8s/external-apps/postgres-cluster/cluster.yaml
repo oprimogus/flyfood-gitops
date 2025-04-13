@@ -11,14 +11,20 @@ spec:
     roles:
     - name: prd_flyfood_api
       login: true
-      passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
+      # Secret deve ter "type: kubernetes.io/basic-auth"
+      passwordSecret:
         name: prd_flyfood-db-secret
     - name: dev_flyfood_api
       login: true
-      passwordSecret: # Secret deve ter "type: kubernetes.io/basic-auth"
+      passwordSecret:
         name: dev_flyfood-db-secret
-  # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
+  certificates:
+    serverTLSSecret: postgres-cluster-server-cert
+    serverCASecret: postgres-cluster-server-cert
+    clientCASecret: postgres-cluster-client-cert
+    replicationTLSSecret: postgres-cluster-client-cert
   storage:
+    # Tipo de Storage; Longhorn usado para permitir resize sem excluir o cluster
     storageClass: longhorn
     # Size define o tamanho de cada  instancia. Exemplo: 40Gi x 3 instances = 120Gi
     size: 10Gi
