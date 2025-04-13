@@ -19,8 +19,8 @@ spec:
       passwordSecret:
         name: dev_flyfood-db-secret
   certificates:
-    serverTLSSecret: postgres-cluster-server-cert
-    serverCASecret: postgres-cluster-server-cert
+    serverTLSSecret: postgres-cluster-cert
+    serverCASecret: postgres-cluster-cert
     clientCASecret: postgres-cluster-client-cert
     replicationTLSSecret: postgres-cluster-client-cert
   storage:
