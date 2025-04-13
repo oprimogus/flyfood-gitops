@@ -8,6 +8,6 @@ spec:
     - client auth
   commonName: streaming_replica
   issuerRef:
-    name: selfsigned-issuer
+    name: ca-issuer
     kind: Issuer
     group: cert-manager.io
