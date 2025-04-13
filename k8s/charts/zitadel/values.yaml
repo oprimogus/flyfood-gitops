@@ -5,6 +5,7 @@ chart: zitadel
 namespace: infra
 values: |
   zitadel:
+    initContainers: []
     masterkeySecretName: zitadel-masterkey-secret
     configmapConfig:
       ExternalSecure: true
