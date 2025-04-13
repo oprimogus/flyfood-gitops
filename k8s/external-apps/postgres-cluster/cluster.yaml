@@ -24,7 +24,7 @@ spec:
         name: zitadel-db-secret
   certificates:
     serverTLSSecret: postgres-cluster-cert
-    serverCASecret: postgres-cluster-cert
+    serverCASecret: internal-ca-cert
     clientCASecret: postgres-cluster-client-cert
     replicationTLSSecret: postgres-cluster-client-cert
   storage:
