@@ -57,6 +57,6 @@ values: |
             name: zitadel-vars-secret
             key: ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD
 
-    dbSslCaCrtSecret: postgres-cluster-cert
+    dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
