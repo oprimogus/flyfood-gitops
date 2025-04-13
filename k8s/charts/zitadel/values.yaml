@@ -7,14 +7,15 @@ values: |
   zitadel:
     initContainers: []
     masterkeySecretName: zitadel-masterkey-secret
+    envVarsSecret: zitadel-vars-secrets
     configmapConfig:
       ExternalSecure: true
-      ExternalDomain: flyfood.com.br
+      ExternalDomain: zitadel.flyfood.com.br
       TLS:
         Enabled: true
       Database:
         Postgres:
-          Host: postgres-cluster-rw.svc.cluster.local
+          Host: postgres-cluster-rw.infra.svc.cluster.local
           Port: 5432
           Database: zitadel-db
           MaxOpenConns: 20
@@ -29,13 +30,13 @@ values: |
             Username: postgres
             SSL:
               Mode: verify-full
-    secretConfig:
-      Database:
-        Postgres:
-          User:
-            Password: xyz
-          Admin:
-            Password: abc
+    # secretConfig:
+    #   Database:
+    #     Postgres:
+    #       User:
+    #         Password: xyz
+    #       Admin:
+    #         Password: abc
 
     dbSslCaCrtSecret: postgres-cluster-cert
     dbSslAdminCrtSecret: postgres-cluster-client-cert
