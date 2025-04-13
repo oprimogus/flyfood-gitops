@@ -10,12 +10,15 @@ spec:
     - postgres-cluster-rw
     - postgres-cluster-rw.infra
     - postgres-cluster-rw.infra.svc
+    - postgres-cluster-rw.infra.svc.cluster.local
     - postgres-cluster-ro
     - postgres-cluster-ro.infra
     - postgres-cluster-ro.infra.svc
+    - postgres-cluster-ro.infra.svc.cluster.local
     - postgres-cluster-r
     - postgres-cluster-r.infra
     - postgres-cluster-r.infra.svc
+    - postgres-cluster-r.infra.svc.cluster.local
   issuerRef:
     name: selfsigned-issuer
     kind: Issuer
