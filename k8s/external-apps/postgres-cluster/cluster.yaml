@@ -18,6 +18,10 @@ spec:
       login: true
       passwordSecret:
         name: dev_flyfood-db-secret
+    - name: zitadel
+      login: true
+      passwordSecret:
+        name: zitadel-db-secret
   certificates:
     serverTLSSecret: postgres-cluster-cert
     serverCASecret: postgres-cluster-cert
