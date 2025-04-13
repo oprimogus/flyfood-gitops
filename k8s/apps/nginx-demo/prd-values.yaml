@@ -34,5 +34,5 @@ secrets:
 ingress:
   enabled: true
   tls: false
-  host: flyfood.com.br
+  host: http://traefik.kube-system.svc.cluster.local
   path: /nginx-demo
