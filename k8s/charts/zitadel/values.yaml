@@ -1,0 +1,41 @@
+name: zitadel
+repoURL: https://charts.zitadel.com
+targetRevision: 8.13.1
+chart: zitadel
+namespace: infra
+values: |
+  zitadel:
+  masterkeySecretName: zitadel-masterkey-secret
+  configmapConfig:
+    ExternalSecure: true
+    ExternalDomain: flyfood.com.br
+    TLS:
+      Enabled: true
+    Database:
+      Postgres:
+        Host: postgres-cluster-rw.svc.cluster.local
+        Port: 5432
+        Database: zitadel-db
+        MaxOpenConns: 20
+        MaxIdleConns: 10
+        MaxConnLifetime: 30m
+        MaxConnIdleTime: 5m
+        User:
+          Username: zitadel
+          SSL:
+            Mode: verify-full
+        Admin:
+          Username: postgres
+          SSL:
+            Mode: verify-full
+  secretConfig:
+    Database:
+      Postgres:
+        User:
+          Password: xyz
+        Admin:
+          Password: abc
+
+  dbSslCaCrtSecret: postgres-cluster-cert
+  dbSslAdminCrtSecret: postgres-cluster-client-cert
+  dbSslUserCrtSecret: postgres-cluster-client-cert
