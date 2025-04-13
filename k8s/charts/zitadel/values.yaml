@@ -7,7 +7,6 @@ values: |
   zitadel:
     initContainers: []
     masterkeySecretName: zitadel-masterkey-secret
-    envVarsSecret: zitadel-vars-secret
     debug:
       enabled: true
       annotations:
@@ -20,6 +19,46 @@ values: |
       ExternalDomain: zitadel.flyfood.com.br
       TLS:
         Enabled: true
+      Database:
+        Postgres:
+          Host: postgres-cluster-rw.infra.svc.cluster.local
+          Port: 5432
+          Database: zitadel-db
+          MaxOpenConns: 20
+          MaxIdleConns: 10
+          MaxConnLifetime: 30m
+          MaxConnIdleTime: 5m
+    env:
+      - name: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: zitadel-db-secret
+            key: username
+
+      - name: ZITADEL_DATABASE_POSTGRES_USER_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: zitadel-db-secret
+            key: password
+
+      - name: ZITADEL_DATABASE_POSTGRES_ADMIN_EXISTINGDATABASE
+        valueFrom:
+          secretKeyRef:
+            name: zitadel-vars-secret
+            key: ZITADEL_DATABASE_POSTGRES_ADMIN_EXISTINGDATABASE
+
+      - name: ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: postgres-cluster-app
+            key: username
+
+      - name: ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: postgres-cluster-app
+            key: password
+
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
