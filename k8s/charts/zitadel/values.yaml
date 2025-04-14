@@ -16,12 +16,6 @@ values: |
       initContainers: []
       extraContainers: []
     configmapConfig:
-      ExternalSecure: true
-      ExternalDomain: flyfood.com.br
-      ExternalPort: 443
-      ExternalPrefix: /zitadel
-      TLS:
-        Enabled: true
       Database:
         Postgres:
           Host: postgres-cluster-rw.infra.svc.cluster.local
@@ -52,7 +46,3 @@ values: |
         paths:
           - path: /zitadel
             pathType: Prefix
-    tls:
-      - hosts: 
-          - flyfood.com.br
-        secretName: cert-tls
