@@ -16,7 +16,7 @@ values: |
       initContainers: []
       extraContainers: []
     configmapConfig:
-      ExternalSecure: true
+      ExternalSecure: false
       ExternalDomain: auth.flyfood.com.br
       TLS:
         Enabled: true
