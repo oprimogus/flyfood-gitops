@@ -29,35 +29,19 @@ values: |
           MaxConnLifetime: 30m
           MaxConnIdleTime: 5m
     secretConfig:
-      - name: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: zitadel-db-secret
-            key: username
-
-      - name: ZITADEL_DATABASE_POSTGRES_USER_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: zitadel-db-secret
-            key: password
-
-      - name: ZITADEL_DATABASE_POSTGRES_ADMIN_EXISTINGDATABASE
-        valueFrom:
-          secretKeyRef:
-            name: zitadel-vars-secret
-            key: ZITADEL_DATABASE_POSTGRES_ADMIN_EXISTINGDATABASE
-
-      - name: ZITADEL_DATABASE_POSTGRES_ADMIN_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: postgres-cluster-app
-            key: username
-
-      - name: ZITADEL_DATABASE_POSTGRES_ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: postgres-cluster-app
-            key: password
+      Database:
+        Postgres:
+          User:
+            Username:
+              valueFrom:
+                secretKeyRef:
+                  name: zitadel-vars-secret
+                  key: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
+            Password:
+              valueFrom:
+                secretKeyRef:
+                  name: zitadel-vars-secret
+                  key: ZITADEL_DATABASE_POSTGRES_USER_PASSWORD
 
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
