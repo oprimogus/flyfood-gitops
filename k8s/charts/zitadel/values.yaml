@@ -46,11 +46,11 @@ values: |
     className: "traefik"
     annotations: {}
     hosts:
-      - host: zitadel.flyfood.com.br
+      - host: flyfood.com.br
         paths:
-          - path: /
+          - path: /zitadel
             pathType: Prefix
     tls:
       - hosts: 
-          - zitadel.flyfood.com.br
+          - flyfood.com.br
         secretName: cert-tls
