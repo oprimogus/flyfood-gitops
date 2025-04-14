@@ -28,14 +28,8 @@ values: |
           MaxIdleConns: 10
           MaxConnLifetime: 30m
           MaxConnIdleTime: 5m
-    secretConfig:
-    Database:
-      Postgres:
-        User:
-          Password: xyz
-        Admin:
-          Password: abc
 
+    envVarsSecret: zitadel-vars-secret
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
