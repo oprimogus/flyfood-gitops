@@ -19,7 +19,7 @@ values: |
       ExternalSecure: false
       ExternalDomain: flyfood.com.br
       TLS:
-        Enabled: false
+        Enabled: true
       Database:
         Postgres:
           Host: postgres-cluster-rw.infra.svc.cluster.local
@@ -40,6 +40,7 @@ values: |
   dbSslCaCrtSecret: internal-ca-secret
   dbSslAdminCrtSecret: postgres-cluster-client-cert
   dbSslUserCrtSecret: postgres-cluster-client-cert
+  serverSslCrtSecret: cert-tls
   ingress:
     enabled: true
     className: traefik
