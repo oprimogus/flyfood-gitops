@@ -17,7 +17,9 @@ values: |
       extraContainers: []
     configmapConfig:
       ExternalSecure: true
-      ExternalDomain: zitadel.flyfood.com.br
+      ExternalDomain: flyfood.com.br
+      ExternalPort: 443
+      ExternalPrefix: /zitadel
       TLS:
         Enabled: true
       Database:
