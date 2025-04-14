@@ -33,6 +33,7 @@ values: |
             Username: zitadel
             SSL:
               Mode: verify-full
+          Admin:
             Username: app
             SSL:
               Mode: verify-full
