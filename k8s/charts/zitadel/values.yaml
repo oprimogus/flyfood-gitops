@@ -41,16 +41,16 @@ values: |
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
     serverSslCrtSecret: cert-tls
-    ingress:
-      enabled: true
-      className: "traefik"
-      annotations: {}
-      hosts:
-        - host: zitadel.flyfood.com.br
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts: 
-            - zitadel.flyfood.com.br
-          secretName: cert-tls
+  ingress:
+    enabled: true
+    className: "traefik"
+    annotations: {}
+    hosts:
+      - host: zitadel.flyfood.com.br
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts: 
+          - zitadel.flyfood.com.br
+        secretName: cert-tls
