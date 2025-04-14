@@ -37,10 +37,10 @@ values: |
             Username: zitadel
             SSL:
               Mode: verify-full
-  dbSslCaCrtSecret: internal-ca-secret
-  dbSslAdminCrtSecret: postgres-cluster-client-cert
-  dbSslUserCrtSecret: postgres-cluster-client-cert
-  serverSslCrtSecret: cert-tls
+    dbSslCaCrtSecret: internal-ca-secret
+    dbSslAdminCrtSecret: postgres-cluster-client-cert
+    dbSslUserCrtSecret: postgres-cluster-client-cert
+    serverSslCrtSecret: cert-tls
   ingress:
     enabled: true
     className: traefik
