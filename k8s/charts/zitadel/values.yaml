@@ -16,7 +16,7 @@ values: |
       initContainers: []
       extraContainers: []
     configmapConfig:
-      ExternalSecure: false
+      ExternalSecure: true
       ExternalDomain: zitadel.flyfood.com.br
       TLS:
         Enabled: true
