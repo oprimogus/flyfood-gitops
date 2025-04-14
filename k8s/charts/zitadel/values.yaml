@@ -19,7 +19,7 @@ values: |
       ExternalSecure: false
       ExternalDomain: zitadel.flyfood.com.br
       TLS:
-        Enabled: false
+        Enabled: true
       Database:
         Postgres:
           Host: postgres-cluster-rw.infra.svc.cluster.local
