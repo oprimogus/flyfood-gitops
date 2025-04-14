@@ -36,12 +36,12 @@ values: |
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
-    ingress:
-      enabled: true
-      className: traefik
-      annotations: {}
-      hosts:
-        - host: flyfood.com.br
-          paths:
-            - path: /zitadel
-              pathType: Prefix
+  ingress:
+    enabled: true
+    className: traefik
+    annotations: {}
+    hosts:
+      - host: flyfood.com.br
+        paths:
+          - path: /zitadel
+            pathType: Prefix
