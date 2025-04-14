@@ -16,6 +16,10 @@ values: |
       initContainers: []
       extraContainers: []
     configmapConfig:
+      ExternalSecure: false
+      ExternalDomain: flyfood.com.br
+      TLS:
+        Enabled: false
       Database:
         Postgres:
           Host: postgres-cluster-rw.infra.svc.cluster.local
