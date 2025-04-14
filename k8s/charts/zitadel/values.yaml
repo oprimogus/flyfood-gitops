@@ -5,6 +5,7 @@ chart: zitadel
 namespace: infra
 values: |
   zitadel:
+    envVarsSecret: zitadel-vars-secret
     initContainers: []
     masterkeySecretName: zitadel-masterkey-secret
     debug:
@@ -28,8 +29,6 @@ values: |
           MaxIdleConns: 10
           MaxConnLifetime: 30m
           MaxConnIdleTime: 5m
-
-    envVarsSecret: zitadel-vars-secret
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
