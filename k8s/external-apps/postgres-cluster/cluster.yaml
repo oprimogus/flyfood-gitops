@@ -21,6 +21,7 @@ spec:
     - name: zitadel
       login: true
       createdb: true
+      createrole: true
       passwordSecret:
         name: zitadel-db-secret
   certificates:
