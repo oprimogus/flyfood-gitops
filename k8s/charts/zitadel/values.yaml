@@ -6,7 +6,6 @@ namespace: infra
 values: |
   envVarsSecret: zitadel-vars-secret
   zitadel:
-    envVarsSecret: zitadel-vars-secret
     initContainers: []
     masterkeySecretName: zitadel-masterkey-secret
     debug:
