@@ -11,3 +11,4 @@ spec:
   commonName: flyfood.com.br
   dnsNames:
   - flyfood.com.br
+  - auth.flyfood.com.br
