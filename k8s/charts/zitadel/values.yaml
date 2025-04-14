@@ -28,7 +28,7 @@ values: |
           MaxIdleConns: 10
           MaxConnLifetime: 30m
           MaxConnIdleTime: 5m
-    env:
+    secretConfig:
       - name: ZITADEL_DATABASE_POSTGRES_USER_USERNAME
         valueFrom:
           secretKeyRef:
