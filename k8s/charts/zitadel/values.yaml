@@ -42,7 +42,7 @@ values: |
     dbSslUserCrtSecret: postgres-cluster-client-cert
     serverSslCrtSecret: cert-tls
     ingress:
-      enabled: false
+      enabled: true
       className: "traefik"
       annotations: {}
       hosts:
