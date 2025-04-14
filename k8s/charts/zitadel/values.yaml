@@ -51,6 +51,6 @@ values: |
             - path: /
               pathType: Prefix
       tls:
-        - host: 
+        - hosts: 
           - zitadel.flyfood.com.br
           secretName: cert-tls
