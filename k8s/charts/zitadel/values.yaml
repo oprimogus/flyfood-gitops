@@ -16,8 +16,8 @@ values: |
       initContainers: []
       extraContainers: []
     configmapConfig:
-      ExternalSecure: false
-      ExternalDomain: flyfood.com.br
+      ExternalSecure: true
+      ExternalDomain: auth.flyfood.com.br
       TLS:
         Enabled: true
       Database:
@@ -46,7 +46,7 @@ values: |
     className: traefik
     annotations: {}
     hosts:
-      - host: flyfood.com.br
+      - host: auth.flyfood.com.br
         paths:
-          - path: /zitadel
+          - path: /
             pathType: Prefix
