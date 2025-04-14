@@ -20,6 +20,7 @@ spec:
         name: dev_flyfood-db-secret
     - name: zitadel
       login: true
+      createdb: true
       passwordSecret:
         name: zitadel-db-secret
   certificates:
