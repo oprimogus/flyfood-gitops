@@ -34,7 +34,7 @@ values: |
             SSL:
               Mode: verify-full
           Admin:
-            Username: app
+            Username: zitadel
             SSL:
               Mode: verify-full
   dbSslCaCrtSecret: internal-ca-secret
