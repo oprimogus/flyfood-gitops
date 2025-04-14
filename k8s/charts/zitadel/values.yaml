@@ -40,3 +40,4 @@ values: |
   dbSslCaCrtSecret: internal-ca-secret
   dbSslAdminCrtSecret: postgres-cluster-client-cert
   dbSslUserCrtSecret: postgres-cluster-client-cert
+  serverSslCrtSecret: cert-tls
