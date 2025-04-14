@@ -36,7 +36,7 @@ values: |
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
-    serverSslCrtSecret: cert-tls
+    # serverSslCrtSecret: cert-tls
   ingress:
     enabled: true
     className: "traefik"
