@@ -31,9 +31,22 @@ spec:
                 secretKeyRef:
                   name: cloudflared-secret
                   key: token
+          volumeMounts:
+            - name: cloudflare-cert-volume
+              mountPath: /etc/cloudflared/cert
+              readOnly: true
           args:
             - "tunnel"
             - "--no-autoupdate"
             - "run"
             - "--token"
             - "$(TOKEN)"
+            - "--origin-ca-pool"
+            - "/etc/cloudflared/cert/tls.crt"  # Apontando diretamente para o arquivo do certificado no Secret
+      volumes:
+        - name: cloudflare-cert-volume
+          secret:
+            secretName: cert-tls  # Nome do seu segredo
+            items:
+              - key: tls.crt  # O campo que contém o certificado no segredo
+                path: tls.crt  # Nome do arquivo que será montado
