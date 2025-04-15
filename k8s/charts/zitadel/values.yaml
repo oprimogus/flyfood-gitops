@@ -17,7 +17,7 @@ values: |
       extraContainers: []
     configmapConfig:
       ExternalSecure: true
-      ExternalDomain: flyfood.com.br
+      ExternalDomain: auth.flyfood.com.br
       TLS:
         Enabled: false
       Database:
@@ -47,11 +47,11 @@ values: |
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
       traefik.ingress.kubernetes.io/router.tls: "true"
     hosts:
-      - host: flyfood.com.br
+      - host: auth.flyfood.com.br
         paths:
-          - path: /zitadel
+          - path: /
             pathType: Prefix
     tls:
       - hosts:
-          - flyfood.com.br
+          - auth.flyfood.com.br
         secretName: cert-tls
