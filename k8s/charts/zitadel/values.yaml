@@ -17,7 +17,7 @@ values: |
       extraContainers: []
     configmapConfig:
       ExternalSecure: false
-      ExternalDomain: flyfood.com.br
+      # ExternalDomain: flyfood.com.br
       TLS:
         Enabled: false
       Database:
