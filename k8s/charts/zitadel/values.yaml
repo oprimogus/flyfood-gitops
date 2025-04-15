@@ -17,9 +17,9 @@ values: |
       extraContainers: []
     configmapConfig:
       ExternalSecure: false
-      ExternalDomain: flyfood.com.br/zitadel
+      ExternalDomain: flyfood.com.br
       TLS:
-        Enabled: true
+        Enabled: false
       Database:
         Postgres:
           Host: postgres-cluster-rw.infra.svc.cluster.local
@@ -44,9 +44,9 @@ values: |
   ingress:
     enabled: true
     className: traefik
-    annotations:
-      traefik.ingress.kubernetes.io/router.entrypoints: websecure
-      traefik.ingress.kubernetes.io/router.tls: "true"
+    # annotations:
+    #   traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    #   traefik.ingress.kubernetes.io/router.tls: "true"
     hosts:
       - host: flyfood.com.br
         paths:
