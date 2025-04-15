@@ -2,6 +2,6 @@ name: external-secrets-operator
 repoURL: https://charts.external-secrets.io
 targetRevision: 0.16.0
 chart: external-secrets
-namespace: infra
+namespace: external-secrets
 values: |
   fullnameOverride: external-secrets-operator

@@ -1,0 +1,7 @@
+name: hashicorp-vault
+repoURL: https://helm.releases.hashicorp.com
+targetRevision: 0.30.0
+chart: hashicorp/vault
+namespace: infra
+values: |
+  fullnameOverride: hashicorp-vault
