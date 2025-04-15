@@ -1,0 +1,8 @@
+name: external-secrets-operator
+repoURL: https://charts.external-secrets.io
+targetRevision: 0.16.0
+chart: external-secrets-operator
+namespace: infra
+values: |
+  fullnameOverride: external-secrets-operator
+  namespaceOverride: external-secrets-operator
