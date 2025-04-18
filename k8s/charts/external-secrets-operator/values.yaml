@@ -5,3 +5,4 @@ chart: external-secrets
 namespace: external-secrets
 values: |
   fullnameOverride: external-secrets-operator
+  installCRDs: true
