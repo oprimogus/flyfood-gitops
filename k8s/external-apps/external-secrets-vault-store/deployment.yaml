@@ -6,7 +6,7 @@ metadata:
 spec:
   provider:
     vault:
-      server: "http://hashicorp-vault.infra.svc.cluster.local:8200"
+      server: "http://hashicorp-vault.infra.svc.cluster.local:10250"
       path: "secret"
       # Version is the Vault KV secret engine version.
       # This can be either "v1" or "v2", defaults to "v2"
