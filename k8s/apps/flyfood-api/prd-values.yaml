@@ -60,12 +60,10 @@ secrets:
   - name: ZITADEL_PROJECT_ID
     secret: prd-flyfood-zitadel
     key: project-id
-    mountPath: /key.json
 
   - name: ZITADEL_CLIENT_ID
     secret: prd-flyfood-zitadel
     key: client-id
-    mountPath: /service-account-key.json
 
 ingress:
   enabled: true
