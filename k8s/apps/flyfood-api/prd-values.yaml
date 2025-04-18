@@ -68,11 +68,11 @@ secrets:
     key: ZITADEL_CLIENT_ID
 
   - name: ZITADEL_KEY
-    secret: flyfood-api-secret
-    key: ZITADEL_KEY
+    secret: prd-flyfood-zitadel-key
+    key: prd-flyfood-zitadel-key
 
   - name: ZITADEL_SERVICE_ACCOUNT_KEY
-    secret: flyfood-api-secret
+    secret: prd-flyfood-zitadel-service-account-key
     key: ZITADEL_SERVICE_ACCOUNT_KEY
 
 ingress:

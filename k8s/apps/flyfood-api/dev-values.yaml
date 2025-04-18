@@ -49,7 +49,7 @@ secrets:
 
   - name: DB_PASSWORD
     secret: flyfood-db-secret
-    key: DB_PASSWORD  
+    key: DB_PASSWORD
 
 ingress:
   enabled: true
