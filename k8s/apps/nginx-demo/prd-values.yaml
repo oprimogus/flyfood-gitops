@@ -1,4 +1,5 @@
 name: nginxdemo
+environment: prd
 
 image:
   repository: nginxdemos/hello

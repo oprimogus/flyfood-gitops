@@ -1,4 +1,5 @@
 name: nginxdemo
+environment: dev
 
 image:
   repository: nginxdemos/hello
