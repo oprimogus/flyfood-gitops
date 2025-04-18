@@ -43,8 +43,8 @@ env:
   ZITADEL_PORT: 8080
   ZITADEL_PROJECT_ID: 295106177753153543
   ZITADEL_CLIENT_ID: 295106214830866439
-  ZITADEL_KEY: ./configs/zitadel/key.json
-  ZITADEL_SERVICE_ACCOUNT_KEY: ./configs/zitadel/service_account_key.json
+  ZITADEL_KEY: /key.json
+  ZITADEL_SERVICE_ACCOUNT_KEY: /service-account-key.json
 
 secrets:
   - name: DB_NAME
@@ -70,10 +70,12 @@ secrets:
   - name: ZITADEL_KEY
     secret: prd-flyfood-zitadel-key
     key: prd-flyfood-zitadel-key
+    mountPath: /key.json
 
   - name: ZITADEL_SERVICE_ACCOUNT_KEY
     secret: prd-flyfood-zitadel-service-account-key
     key: ZITADEL_SERVICE_ACCOUNT_KEY
+    mountPath: /service-account-key.json
 
 ingress:
   enabled: true
