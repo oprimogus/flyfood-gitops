@@ -17,3 +17,4 @@ spec:
         tokenSecretRef:
           name: "vault-secret"
           key: "token"
+          namespace: infra
