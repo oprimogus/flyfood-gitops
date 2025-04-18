@@ -1,5 +1,5 @@
 name: flyfood-api
-namespace: prd
+environment: prd
 
 image:
   repository: oprimogusreal/cardapiogo-api

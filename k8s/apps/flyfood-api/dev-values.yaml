@@ -1,5 +1,5 @@
 name: flyfood-api
-namespace: dev
+environment: dev
 
 image:
   repository: oprimogusreal/cardapiogo-api
