@@ -1,6 +1,6 @@
 name: external-secrets-operator
 repoURL: https://charts.external-secrets.io
-targetRevision: 0.16.1
+targetRevision: 0.15.1
 chart: external-secrets
 namespace: external-secrets
 values: |
