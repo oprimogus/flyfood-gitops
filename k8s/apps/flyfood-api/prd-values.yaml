@@ -34,7 +34,6 @@ env:
 
   API_PORT: 3000
   API_SERVICE_NAME: flyfood-api
-  API_BASE_PATH: /
   ENVIRONMENT: production
   SQLCDEBUG: 0
 
@@ -79,3 +78,5 @@ ingress:
   enabled: true
   host: flyfood.com.br
   path: /api
+  annotations:
+    traefik.ingress.kubernetes.io/rule-type: "PathPrefixStrip"
