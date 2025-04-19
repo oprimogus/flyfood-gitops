@@ -79,3 +79,5 @@ ingress:
   enabled: true
   host: flyfood.com.br
   path: /api
+  annotations: 
+    traefik.ingress.kubernetes.io/rewrite-target: /
