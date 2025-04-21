@@ -34,6 +34,7 @@ env:
 
   API_PORT: 3000
   API_SERVICE_NAME: flyfood-api
+  API_BASE_PATH: /api
   ENVIRONMENT: production
   SQLCDEBUG: 0
 
