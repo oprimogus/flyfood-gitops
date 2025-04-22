@@ -60,7 +60,7 @@ secrets:
     key: DB_PASSWORD  
 
   - name: ZITADEL_PROJECT_ID
-    secret: prd-flyfood-zitadel
+    secret: dev-flyfood-zitadel
     key: project-id
 
   - name: ZITADEL_CLIENT_ID
