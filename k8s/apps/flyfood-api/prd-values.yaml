@@ -1,5 +1,11 @@
 name: flyfood-api
 environment: prd
+port: 3000
+
+annotations:
+    keel.sh/policy: all
+    keel.sh/trigger: poll      
+    keel.sh/pollSchedule: "@every 30s"
 
 image:
   repository: ghcr.io/oprimogus/flyfood-api
@@ -7,8 +13,6 @@ image:
   pullPolicy: Always
   pullSecrets:
     - ghcr-secret
-  
-port: 3000
 
 resources:
   min:
