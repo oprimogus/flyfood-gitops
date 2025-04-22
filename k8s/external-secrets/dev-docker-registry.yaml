@@ -1,0 +1,32 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: ghcr-secret         # Nome do recurso ExternalSecret (não é o nome da Secret criada)
+  namespace: dev                          # Namespace onde o ExternalSecret e a Secret serão criados
+spec:
+  refreshInterval: "15s"                  # Intervalo de atualização para sincronizar com o Vault
+  secretStoreRef:
+    name: vault-backend                   # Nome do SecretStore que aponta para o Vault
+    kind: ClusterSecretStore                     # Tipo do SecretStore (pode ser ClusterSecretStore também)
+  target:
+    name: ghcr-secret          # Nome da Secret do Kubernetes que será criada com os dados do Vault
+  data:
+    - secretKey: docker-server  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
+      remoteRef:
+        key: ghcr-secret       # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
+        property: docker-server                    # Nome da chave dentro da secret do Vault (ex: se seu JSON estiver salvo no campo 'JSON')
+    
+    - secretKey: docker-username  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
+      remoteRef:
+        key: ghcr-secret       # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
+        property: docker-username                   # Nome da chave dentro da secret do Vault (ex: se seu JSON estiver salvo no campo 'JSON')
+
+    - secretKey: docker-password  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
+      remoteRef:
+        key: ghcr-secret       # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
+        property: docker-password                 # Nome da chave dentro da secret do Vault (ex: se seu JSON estiver salvo no campo 'JSON')
+
+    - secretKey: docker-email  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
+      remoteRef:
+        key: ghcr-secret       # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
+        property: docker-email                    # Nome da chave dentro da secret do Vault (ex: se seu JSON estiver salvo no campo 'JSON')

@@ -7,7 +7,7 @@ help:
 	@echo "  1. Selecione um namespace existente ou digite um novo"
 	@echo "  2. Digite o nome do secret (sem o sufixo '-secret')"
 	@echo "  3. Informe os nomes das variáveis de ambiente, separados por espaço"
-	@echo "  4. Digite o valor para cada variável (entrada oculta)"
+	@echo "  4. Digite o valor para cada variável (suporta valores complexos e multilinha)"
 	@echo "  5. Selecione o tipo do secret a partir de uma lista de opções"
 	@echo ""
 	@echo "O SealedSecret será salvo em k8s/secrets/<namespace>-<nome>-secret.yaml"
@@ -77,25 +77,43 @@ secret:
 		echo "✅ Nome do secret definido: $$secret_name"; \
 		echo ""; \
 		\
+		# Criar diretório temporário para os valores \
+		temp_dir=$$(mktemp -d); \
+		echo "📝 Diretório temporário criado: $$temp_dir"; \
+		\
 		# Variáveis \
 		printf "👉 Digite os nomes das variáveis separados por espaço (ex: API_KEY DB_PASS): "; \
 		read vars; \
 		if [ -z "$$vars" ]; then \
 			echo "❌ Pelo menos uma variável é obrigatória"; \
+			rm -rf "$$temp_dir"; \
 			exit 1; \
 		fi; \
 		echo "✅ Variáveis definidas: $$vars"; \
+		echo ""; \
+		\
 		echo "📝 Agora, digite o valor para cada variável:"; \
-		temp_args=""; \
+		echo "   (Para valores complexos como JSON ou chaves privadas:)"; \
+		echo "   - Você pode colar valores multilinha"; \
+		echo "   - Para finalizar a entrada, digite uma linha com apenas \"FIM\""; \
+		echo ""; \
+		\
+		# Criar arquivos para cada variável \
 		for var in $$vars; do \
-			printf "   👉 Digite o valor para $$var (entrada oculta): "; \
-			read -r -s value; echo; \
-			temp_args="$$temp_args --from-literal=$$var=$$value"; \
+			var_file="$$temp_dir/$$var"; \
+			echo "👉 Digite/cole o valor para $$var:"; \
+			while IFS= read -r line; do \
+				# Verificar se a linha é "FIM" para finalizar entrada \
+				if [ "$$line" = "FIM" ]; then \
+					break; \
+				fi; \
+				echo "$$line" >> "$$var_file"; \
+			done; \
+			echo "✅ Valor coletado para $$var"; \
+			echo ""; \
 		done; \
-		echo "✅ Valores coletados para todas as variáveis"; \
 		\
 		# Tipo do secret \
-		echo ""; \
 		echo "📋 Selecione o tipo do secret:"; \
 		echo "────────────────────────────────────────────────"; \
 		echo "  [1] Opaque (padrão para a maioria dos secrets)"; \
@@ -136,14 +154,31 @@ secret:
 		echo "📁 Criando diretório de saída..."; \
 		mkdir -p k8s/secrets; \
 		echo "🛠️  Executando kubectl e kubeseal..."; \
-		kubectl create secret generic $$secret_name $$temp_args \
-			--namespace=$$namespace \
-			--type=$$type \
+		\
+		# Preparar os argumentos para kubectl \
+		kubectl_args=""; \
+		for var in $$vars; do \
+			var_file="$$temp_dir/$$var"; \
+			if [ -f "$$var_file" ]; then \
+				kubectl_args="$$kubectl_args --from-file=$$var=$$var_file"; \
+			fi; \
+		done; \
+		\
+		# Executar kubectl e kubeseal \
+		kubectl create secret generic "$$secret_name" \
+			--namespace="$$namespace" \
+			--type="$$type" \
+			$$kubectl_args \
 			--dry-run=client -o json | \
 		kubeseal \
 			--controller-namespace infra \
 			--controller-name sealed-secrets \
+			--allow-empty-data \
 			--format yaml > "$$output_file"; \
+		\
+		# Limpar diretório temporário \
+		rm -rf "$$temp_dir"; \
+		\
 		echo ""; \
 		echo "✅ SealedSecret criado com sucesso!"; \
 		echo "📄 Arquivo salvo em: $$output_file"; \
