@@ -37,7 +37,7 @@ health:
 env:
   NODE_ENV: production
 
-  CLIENT_FLYFOOD_API: https://flyfood.com.br/api
+  CLIENT_FLYFOOD_API: https://flyfood.com.br/flyfood-api
   CLIENT_VIACEP_API: http://viacep.com.br
 
 secrets:
