@@ -40,7 +40,14 @@ env:
   CLIENT_FLYFOOD_API: https://flyfood.com.br/flyfood-api
   CLIENT_VIACEP_API: http://viacep.com.br
 
+  AUTH_ZITADEL_ISSUER: https://auth.flyfood.com.br
+  AUTH_ZITADEL_ID: 296420074552623111
+  AUTH_TRUST_HOST: true
+
 secrets:
+  - name: AUTH_SECRET
+    secret: flyfood-web-secret
+    key: AUTH_SECRET
 
 ingress:
   enabled: true
