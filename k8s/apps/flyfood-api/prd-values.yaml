@@ -2,7 +2,7 @@ name: flyfood-api
 environment: prd
 
 image:
-  repository: oprimogus/flyfood-api
+  repository: ghcr.io/oprimogus/flyfood-api
   tag: latest
   pullPolicy: Always
   pullSecrets:
