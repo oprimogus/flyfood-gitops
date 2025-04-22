@@ -2,9 +2,11 @@ name: flyfood-api
 environment: dev
 
 image:
-  repository: oprimogusreal/cardapiogo-api
-  pullPolicy: Always
+  repository: ghcr.io/oprimogus/flyfood-api
   tag: latest
+  pullPolicy: Always
+  pullSecrets:
+    - ghcr-secret
 
 port: 3000
 
