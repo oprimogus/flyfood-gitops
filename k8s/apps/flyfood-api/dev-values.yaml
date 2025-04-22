@@ -31,14 +31,20 @@ health:
     enabled: true
 
 env:
-  DB_HOST: postgres-cluster-r.dev.svc.cluster.local
+  DB_HOST: postgres-cluster-rw.infra.svc.cluster.local
   DB_PORT: 5432
 
   API_PORT: 3000
   API_SERVICE_NAME: flyfood-api
-  API_BASE_PATH: /
+  API_BASE_PATH: /api
   ENVIRONMENT: production
   SQLCDEBUG: 0
+
+  ZITADEL_ISSUER: https://zitadel.infra.svc.cluster.local
+  ZITADEL_DOMAIN: auth.flyfood.com.br
+  ZITADEL_PORT: 443
+  ZITADEL_KEY: /key.json
+  ZITADEL_SERVICE_ACCOUNT_KEY: /service-account-key.json
 
 secrets:
   - name: DB_NAME
@@ -51,7 +57,25 @@ secrets:
 
   - name: DB_PASSWORD
     secret: flyfood-db-secret
-    key: DB_PASSWORD
+    key: DB_PASSWORD  
+
+  - name: ZITADEL_PROJECT_ID
+    secret: prd-flyfood-zitadel
+    key: project-id
+
+  - name: ZITADEL_CLIENT_ID
+    secret: prd-flyfood-zitadel
+    key: client-id
+
+  - name: ZITADEL_KEY
+    secret: prd-flyfood-zitadel
+    key: key
+    mountPath: /key.json
+
+  - name: ZITADEL_SERVICE_ACCOUNT_KEY
+    secret: prd-flyfood-zitadel
+    key: service-account-key
+    mountPath: /service-account-key.json
 
 ingress:
   enabled: true
