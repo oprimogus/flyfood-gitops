@@ -36,7 +36,7 @@ env:
 
   API_PORT: 3000
   API_SERVICE_NAME: flyfood-api
-  API_BASE_PATH: /api
+  API_BASE_PATH: /flyfood-api
   ENVIRONMENT: production
   SQLCDEBUG: 0
 
@@ -80,4 +80,4 @@ secrets:
 ingress:
   enabled: true
   host: dev.flyfood.com.br
-  path: /api
+  path: /flyfood-api
