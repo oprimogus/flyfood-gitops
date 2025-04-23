@@ -41,7 +41,7 @@ env:
   CLIENT_VIACEP_API: http://viacep.com.br
 
   AUTH_ZITADEL_ISSUER: https://auth.flyfood.com.br
-  AUTH_ZITADEL_ID: 316869047071342604
+  AUTH_ZITADEL_ID: "316869047071342604"
   AUTH_TRUST_HOST: true
 
 secrets:
