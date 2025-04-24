@@ -37,8 +37,8 @@ health:
 env:
   NODE_ENV: production
 
-  CLIENT_FLYFOOD_API: https://flyfood.com.br/flyfood-api
-  CLIENT_VIACEP_API: http://viacep.com.br
+  NEXT_PUBLIC_CLIENT_FLYFOOD_API: https://flyfood.com.br/flyfood-api
+  NEXT_PUBLIC_CLIENT_VIACEP_API: http://viacep.com.br
 
   NEXTAUTH_URL: https://flyfood.com.br
   AUTH_ZITADEL_ISSUER: https://auth.flyfood.com.br
