@@ -8,7 +8,7 @@ annotations:
     keel.sh/pollSchedule: "@every 30s"
 
 image:
-  repository: ghcr.io/oprimogus/flyfood-web
+  repository: ghcr.io/oprimogus/flyfood-web-main
   tag: latest
   pullPolicy: Always
   pullSecrets:
