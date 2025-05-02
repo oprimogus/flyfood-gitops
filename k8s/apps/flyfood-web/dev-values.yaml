@@ -35,7 +35,7 @@ health:
     enabled: true
 
 env:
-  NODE_ENV: production
+  NODE_ENV: dev
 
   CLIENT_FLYFOOD_API: https://dev.flyfood.com.br/flyfood-api
   CLIENT_VIACEP_API: http://viacep.com.br
