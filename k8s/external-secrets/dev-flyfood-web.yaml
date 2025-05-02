@@ -2,7 +2,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: flyfood-web           # Nome do recurso ExternalSecret (não é o nome da Secret criada)
-  namespace: prd                          # Namespace onde o ExternalSecret e a Secret serão criados
+  namespace: dev                          # Namespace onde o ExternalSecret e a Secret serão criados
 spec:
   refreshInterval: "15s"                  # Intervalo de atualização para sincronizar com o Vault
   secretStoreRef:
@@ -13,5 +13,5 @@ spec:
   data:
     - secretKey: AUTH_SECRET  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
       remoteRef:
-        key: prd-flyfood-web      # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
+        key: dev-flyfood-web      # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
         property: AUTH_SECRET                    # Nome da chave dentro da secret do Vault (ex: se seu JSON estiver salvo no campo 'JSON')

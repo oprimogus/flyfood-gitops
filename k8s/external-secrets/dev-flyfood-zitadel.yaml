@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: dev-flyfood-zitadel           # Nome do recurso ExternalSecret (não é o nome da Secret criada)
+  name: flyfood-zitadel           # Nome do recurso ExternalSecret (não é o nome da Secret criada)
   namespace: dev                          # Namespace onde o ExternalSecret e a Secret serão criados
 spec:
   refreshInterval: "15s"                  # Intervalo de atualização para sincronizar com o Vault
@@ -9,7 +9,7 @@ spec:
     name: vault-backend                   # Nome do SecretStore que aponta para o Vault
     kind: ClusterSecretStore                     # Tipo do SecretStore (pode ser ClusterSecretStore também)
   target:
-    name: dev-flyfood-zitadel         # Nome da Secret do Kubernetes que será criada com os dados do Vault
+    name: flyfood-zitadel         # Nome da Secret do Kubernetes que será criada com os dados do Vault
   data:
     - secretKey: client-id  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
       remoteRef:

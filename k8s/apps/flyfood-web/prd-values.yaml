@@ -48,7 +48,7 @@ env:
 
 secrets:
   - name: AUTH_SECRET
-    secret: prd-flyfood-web
+    secret: flyfood-web
     key: AUTH_SECRET
 
 ingress:

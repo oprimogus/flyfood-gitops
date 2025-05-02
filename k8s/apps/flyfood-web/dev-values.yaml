@@ -37,13 +37,19 @@ health:
 env:
   NODE_ENV: production
 
-  CLIENT_FLYFOOD_API: https://flyfood.com.br/api
+  CLIENT_FLYFOOD_API: https://flyfood.com.br/flyfood-api
   CLIENT_VIACEP_API: http://viacep.com.br
 
-  AUTH_ZITADEL_ISSUER: auth.flyfood.com.br
-  AUTH_ZITADEL_ID: 316869047071342604
+  NEXTAUTH_URL: https://flyfood.com.br
+  AUTH_ZITADEL_ISSUER: https://auth.flyfood.com.br
+  AUTH_ZITADEL_ID: "317736390097960989"
+  AUTH_ZITADEL_PROJECT_ID: "317736215765843998"
+  AUTH_TRUST_HOST: true
 
 secrets:
+  - name: AUTH_SECRET
+    secret: flyfood-web
+    key: AUTH_SECRET
 
 ingress:
   enabled: true
