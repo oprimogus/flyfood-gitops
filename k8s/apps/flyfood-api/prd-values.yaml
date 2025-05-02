@@ -64,20 +64,20 @@ secrets:
     key: DB_PASSWORD  
 
   - name: ZITADEL_PROJECT_ID
-    secret: flyfood-zitadel
+    secret: flyfood-api-zitadel
     key: project-id
 
   - name: ZITADEL_CLIENT_ID
-    secret: flyfood-zitadel
+    secret: flyfood-api-zitadel
     key: client-id
 
   - name: ZITADEL_KEY
-    secret: flyfood-zitadel
+    secret: flyfood-api-zitadel
     key: key
     mountPath: /key.json
 
   - name: ZITADEL_SERVICE_ACCOUNT_KEY
-    secret: flyfood-zitadel
+    secret: flyfood-api-zitadel
     key: service-account-key
     mountPath: /service-account-key.json
 
