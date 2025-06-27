@@ -2,7 +2,7 @@ name: flyfood-api
 environment: dev
 
 image:
-  repository: ghcr.io/oprimogus/flyfood-api
+  repository: ghcr.io/oprimogus/flyfood-api-dev
   tag: latest
   pullPolicy: Always
   pullSecrets:
