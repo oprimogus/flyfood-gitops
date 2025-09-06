@@ -21,8 +21,9 @@ values: |
           - ReadWriteOnce
         size: 500Gi
         
-    service:
-      type: NodePort
-      port: 8096
-      nodePort: 8096
+    hostNetwork: true
+    port: 8096
+    hostPort:
+        enabled: true
+        port: 8096
 
