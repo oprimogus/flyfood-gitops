@@ -6,7 +6,7 @@ namespace: jellyfin
 values: |
     image:
         repository: jellyfin/jellyfin
-        tag: "2025090105"
+        tag: "2025081805"
         pullPolicy: IfNotPresent
     persistence:
       config:
