@@ -24,4 +24,5 @@ values: |
     service:
       type: NodePort
       port: 8096
+      nodePort: 8096
 
