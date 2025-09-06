@@ -12,4 +12,9 @@ values: |
         enabled: true
         isPvc: true
         existingClaim: "jellyfin-data"
+    
+    hostNetwork: true
+    hostPort:
+      enabled: true
+      port: 9091
 
