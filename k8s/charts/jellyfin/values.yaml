@@ -8,7 +8,6 @@ values: |
       config:
         enabled: true
         isPvc: true
-        existingClaim: ""
         storageClass: "longhorn"
         accessModes:
           - ReadWriteOnce
@@ -17,8 +16,8 @@ values: |
       data:
         enabled: true
         isPvc: true
-        existingClaim: ""
         storageClass: "longhorn"
         accessModes:
           - ReadWriteOnce
         size: 1Ti
+
