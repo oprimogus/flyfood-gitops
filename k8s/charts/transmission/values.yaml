@@ -4,6 +4,10 @@ targetRevision: 2.5.0
 chart: transmission-openvpn
 namespace: jellyfin
 values: |
+    image:
+        repository: lscr.io/linuxserver/transmission
+        tag: "latest"
+        pullPolicy: IfNotPresent
     persistence:
         enabled: true
         isPvc: true
