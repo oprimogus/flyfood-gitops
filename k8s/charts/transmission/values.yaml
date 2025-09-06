@@ -17,8 +17,4 @@ values: |
     hostPort:
       enabled: true
       port: 9091
-    
-    service:
-      type: NodePort
-      port: 9091
 
