@@ -4,10 +4,10 @@ targetRevision: 2.0.0
 chart: jellyfin
 namespace: jellyfin
 values: |
-    image:
-        repository: jellyfin/jellyfin
-        tag: "2025081805"
-        pullPolicy: IfNotPresent
+    # image:
+    #     repository: jellyfin/jellyfin
+    #     tag: "2025081805"
+    #     pullPolicy: IfNotPresent
     persistence:
       config:
         enabled: true
