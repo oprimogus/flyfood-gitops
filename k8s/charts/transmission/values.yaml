@@ -18,3 +18,8 @@ values: |
       enabled: true
       port: 9091
 
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+
