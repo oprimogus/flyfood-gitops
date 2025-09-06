@@ -1,7 +1,7 @@
 name: transmission
-repoURL: https://geek-cookbook.github.io/charts/
+repoURL: https://utkuozdemir.org/helm-charts
 targetRevision: 8.4.3
-chart: transmission
+chart: transmission-openvpn
 namespace: transmission
 values: |
     persistence:
