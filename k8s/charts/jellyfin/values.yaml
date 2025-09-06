@@ -19,5 +19,5 @@ values: |
         storageClass: "longhorn"
         accessModes:
           - ReadWriteOnce
-        size: 1Ti
+        size: 500Gi
 
