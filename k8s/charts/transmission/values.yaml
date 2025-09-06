@@ -2,7 +2,7 @@ name: transmission
 repoURL: https://utkuozdemir.org/helm-charts
 targetRevision: 2.5.0
 chart: transmission-openvpn
-namespace: transmission
+namespace: jellyfin
 values: |
     persistence:
         enabled: true
