@@ -16,7 +16,7 @@ spec:
   volumes:
     - name: old-data
       hostPath:
-        path: /mnt/hd2/data
+        path: /mnt/hd2
         type: Directory
     - name: new-data
       persistentVolumeClaim:
