@@ -1,0 +1,6 @@
+name: jellyfin
+repoURL: https://utkuozdemir.org/helm-charts
+targetRevision: 1.0.5
+chart: jellyfin
+namespace: jellyfin
+values: |
