@@ -1,0 +1,11 @@
+name: transmission
+repoURL: https://geek-cookbook.github.io/charts/
+targetRevision: 8.4.3
+chart: transmission
+namespace: transmission
+values: |
+    persistence:
+        enabled: true
+        isPvc: true
+        existingClaim: "jellyfin-data"
+
