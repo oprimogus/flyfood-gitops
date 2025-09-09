@@ -6,6 +6,10 @@ namespace: nextcloud
 values: |
     nextcloud:
         host: drive.flyfood.com.br
+        trustedDomains:
+            - drive.flyfood.com.br
+    service:
+        port: 80
     ingress:
         enabled: true
         className: traefik
