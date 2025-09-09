@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: data-migrator
-  namespace: jellyfin
+  namespace: infra
 spec:
   containers:
     - name: migrator
@@ -20,5 +20,5 @@ spec:
         type: Directory
     - name: new-data
       persistentVolumeClaim:
-        claimName: jellyfin-data
+        claimName: nextcloud-nextcloud-data
   restartPolicy: Never
