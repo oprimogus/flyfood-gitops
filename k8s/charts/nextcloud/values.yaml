@@ -15,10 +15,10 @@ values: |
         className: traefik
         path: /
         pathType: Prefix
-        tls:
-          - hosts:
-              - drive.flyfood.com.br
-            secretName: cert-tls
+        # tls:
+        #   - hosts:
+        #       - drive.flyfood.com.br
+        #     secretName: cert-tls
     persistence:
         enabled: true
         storageClass: "longhorn"
