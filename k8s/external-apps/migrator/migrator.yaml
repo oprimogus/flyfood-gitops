@@ -4,10 +4,13 @@ metadata:
   name: data-migrator
   namespace: infra
 spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
   containers:
     - name: migrator
-      image: alpine:3.19
-      command: ["/bin/sh", "-c", "sleep 3600"]
+      image: ubuntu:24.04
+      command: ["/bin/bash", "-c", "sleep 3600"]
       volumeMounts:
         - name: old-data
           mountPath: /old
@@ -16,7 +19,7 @@ spec:
   volumes:
     - name: old-data
       hostPath:
-        path: /mnt/hd2
+        path: /mnt/hd3
         type: Directory
     - name: new-data
       persistentVolumeClaim:
