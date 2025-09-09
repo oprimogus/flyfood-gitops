@@ -2,7 +2,7 @@ name: nextcloud
 repoURL: https://nextcloud.github.io/helm/
 targetRevision: 7.0.4
 chart: nextcloud
-namespace: nextcloud
+namespace: infra
 values: |
     nextcloud:
         host: drive.flyfood.com.br
