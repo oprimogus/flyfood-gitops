@@ -23,7 +23,7 @@ values: |
         storageClass: "longhorn"
         accessModes:
           - ReadWriteOnce
-        size: 500Gi
+        size: 1Ti
         
     hostNetwork: true
     port: 8096
