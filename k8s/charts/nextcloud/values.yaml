@@ -1,0 +1,31 @@
+name: nextcloud
+repoURL: https://nextcloud.github.io/helm/
+targetRevision: 7.0.4
+chart: nextcloud
+namespace: nextcloud
+values: |
+    ingress:
+        enabled: true
+        className: traefik
+        hosts:
+          - host: drive.flyfood.com.br
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - drive.flyfood.com.br
+            secretName: cert-tls
+    persistence:
+        enabled: true
+        storageClass: "longhorn"
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        nextcloudData:
+            enabled: true
+            storageClass: "longhorn"
+            accessMode: ReadWriteOnce
+            size: 200Gi
+        
+
+
