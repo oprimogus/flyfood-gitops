@@ -4,6 +4,8 @@ targetRevision: 7.0.4
 chart: nextcloud
 namespace: nextcloud
 values: |
+    nextcloud:
+        host: drive.flyfood.com.br
     ingress:
         enabled: true
         className: traefik
