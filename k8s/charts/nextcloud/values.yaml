@@ -9,6 +9,7 @@ values: |
         trustedDomains:
             - drive.flyfood.com.br
     service:
+        type: NodePort
         port: 80
     ingress:
         enabled: true
