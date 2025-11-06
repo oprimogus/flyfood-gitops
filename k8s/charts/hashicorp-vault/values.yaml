@@ -5,6 +5,18 @@ chart: vault
 namespace: infra
 values: |
   fullnameOverride: hashicorp-vault
+  dataStorage:
+    enabled: true
+    size: 10Gi
+    mountPath: "/vault/data"
+    storageClass: "longhorn"
+    accessMode: ReadWriteOnce
+    annotations: {}
+    labels: {}
+  
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
   server:
     enabled: true
     dev:
