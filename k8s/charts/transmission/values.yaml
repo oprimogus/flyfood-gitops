@@ -9,9 +9,9 @@ values: |
         tag: "latest"
         pullPolicy: IfNotPresent
     env:
-        PUID: 1000
-        PGID: 1000
-        TZ: America/Sao_Paulo
+        PUID: "1000"
+        PGID: "1000"
+        TZ: "America/Sao_Paulo"
     persistence:
         enabled: true
         isPvc: true
