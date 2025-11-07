@@ -15,7 +15,9 @@ values: |
     persistence:
         enabled: true
         isPvc: true
-        existingClaim: "jellyfin-data"
+        # existingClaim: "jellyfin-data"
+        storageClass: longhorn
+        size: 500Gi
     
     hostNetwork: true
     hostPort:
