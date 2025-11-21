@@ -1,6 +1,6 @@
 name: transmission
 repoURL: oci://ghcr.io/lexfrei/charts
-targetRevision: 2.5.0
+targetRevision: 1.2.0
 chart: transmission
 namespace: jellyfin
 values: |
