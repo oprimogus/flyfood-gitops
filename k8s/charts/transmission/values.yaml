@@ -13,11 +13,16 @@ values: |
         isPvc: true
         # existingClaim: "jellyfin-data"
         storageClass: longhorn
-        size: 500Gi    
-    env: 
+        size: 500Gi
+    
+    hostNetwork: true
+    hostPort:
+      enabled: true
+      port: 9091
+    env:
       # OPENVPN_PROVIDER: my_value
       # CREATE_TUN_DEVICE: "true"
-      TRANSMISSION_SPEED_LIMIT_UP: "2048"
+      # TRANSMISSION_SPEED_LIMIT_UP: "2048"
       PUID: "1000"
       PGID: "1000"
 
