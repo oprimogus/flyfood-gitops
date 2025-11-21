@@ -1,22 +1,22 @@
 name: transmission
-repoURL: ""
-chart: oci://ghcr.io/lexfrei/charts/transmission
-targetRevision: 1.2.0
+repoURL: https://utkuozdemir.org/helm-charts
+targetRevision: 2.5.0
+chart: transmission-openvpn
 namespace: jellyfin
 values: |
-    env:
-        TZ: "America/Sao_Paulo"
+    image:
+        repository: lscr.io/linuxserver/transmission
+        tag: "latest"
+        pullPolicy: IfNotPresent
     persistence:
-        config:
-            enabled: true
-            storageClassName: "longhorn"
-            size: 1Gi
-        downloads:
-            enabled: true
-            type: pvc
-            storageClassName: "longhorn"
-            accessMode: ReadWriteMany
-            size: 500Gi
-            # existingClaim must be empty to create a new PVC
-            # existingClaim: ""
+        enabled: true
+        isPvc: true
+        # existingClaim: "jellyfin-data"
+        storageClass: longhorn
+        size: 500Gi
+    
+    hostNetwork: true
+    hostPort:
+      enabled: true
+      port: 9091
 
