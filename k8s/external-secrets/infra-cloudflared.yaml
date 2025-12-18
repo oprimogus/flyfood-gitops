@@ -13,5 +13,5 @@ spec:
   data:
     - secretKey: token  # Nome da chave dentro da Secret do Kubernetes (ex: será montada como um arquivo se usado como volume)
       remoteRef:
-        key: /infra/cloudflared      # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
+        key: infra/cloudflared      # Caminho no Vault (sem o prefixo 'kv/data/') onde está o segredo
         property: token                    # Nome da chave dentro da secret do Vault (ex: se seu JSON estiver salvo no campo 'JSON')
