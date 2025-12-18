@@ -47,11 +47,11 @@ values: |
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
       traefik.ingress.kubernetes.io/router.tls: "true"
     hosts:
-      - host: auth.flyfood.com.br
+      - host: auth.oprimoguslab.xyz
         paths:
           - path: /
             pathType: Prefix
     tls:
       - hosts:
-          - auth.flyfood.com.br
+          - auth.oprimoguslab.xyz
         secretName: cert-tls
