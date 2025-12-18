@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: external-apps-charts
+  name: operators
   namespace: argocd
 spec:
   generators:
