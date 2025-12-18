@@ -12,7 +12,7 @@ image:
   tag: latest
   pullPolicy: Always
   pullSecrets:
-    - ghcr-secret
+    - github-container-registry
 
 resources:
   min:
