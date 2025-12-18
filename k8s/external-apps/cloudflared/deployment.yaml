@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloudflare
+  name: cloudflared
   namespace: infra
 spec:
   replicas: 1
@@ -11,11 +11,11 @@ spec:
   template:
     metadata:
       labels:
-        app: cloudflare
-        name: cloudflare
+        app: cloudflared
+        name: cloudflared
     spec:
       containers:
-        - name: cloudflare
+        - name: cloudflared
           image: cloudflare/cloudflared:latest
           imagePullPolicy: Always
           resources:
