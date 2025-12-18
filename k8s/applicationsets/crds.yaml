@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: sealed-secrets
+  name: crds
   namespace: argocd
 spec:
   generators:
@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/oprimogus/flyfood-gitops.git
         revision: main
         directories:
-          - path: k8s/secrets
+          - path: k8s/CRDs/*
   template:
     metadata:
       name: '{{path.basename}}'

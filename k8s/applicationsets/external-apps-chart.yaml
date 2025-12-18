@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: charts
+  name: external-apps-charts
   namespace: argocd
 spec:
   generators:
@@ -9,11 +9,11 @@ spec:
       repoURL: https://github.com/oprimogus/flyfood-gitops.git
       revision: main
       files:
-      - path: k8s/charts/*
+      - path: k8s/external-apps-chart/*
   template:
     metadata:
       name: '{{path.basename}}'
-      namespace: argocd
+      namespace: infra
     spec:
       project: default
       source:

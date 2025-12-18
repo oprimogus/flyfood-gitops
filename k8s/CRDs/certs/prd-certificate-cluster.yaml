@@ -8,8 +8,8 @@ spec:
   issuerRef:
     name: letsencrypt-cloudflare-prd
     kind: ClusterIssuer
-  commonName: flyfood.com.br
+  commonName: oprimoguslab.xyz
   dnsNames:
-  - flyfood.com.br
-  - auth.flyfood.com.br
-  - drive.flyfood.com.br
+  - oprimoguslab.xyz
+  - auth.oprimoguslab.xyz
+  - drive.oprimoguslab.xyz
