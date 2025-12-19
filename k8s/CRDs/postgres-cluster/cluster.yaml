@@ -23,7 +23,7 @@ spec:
       createdb: true
       createrole: true
       passwordSecret:
-        name: zitadel-db-secret
+        name: zitadel-db
   certificates:
     serverTLSSecret: postgres-cluster-cert
     serverCASecret: internal-ca-secret
