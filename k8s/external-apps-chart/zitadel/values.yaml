@@ -6,18 +6,9 @@ namespace: infra
 values: |
   envVarsSecret: zitadel-vars-secret
   zitadel:
-    initContainers: []
-    masterkeySecretName: zitadel-masterkey-secret
-    debug:
-      enabled: true
-      annotations:
-        helm.sh/hook: 'pre-install,pre-upgrade'
-        helm.sh/hook-weight: '1'
-      initContainers: []
-      extraContainers: []
     configmapConfig:
       ExternalSecure: true
-      ExternalDomain: auth.flyfood.com.br
+      ExternalDomain: auth.oprimoguslab.xyz
       TLS:
         Enabled: false
       Database:
@@ -37,6 +28,16 @@ values: |
             Username: zitadel
             SSL:
               Mode: verify-full
+    initContainers: []
+    masterkeySecretName: zitadel
+    debug:
+      enabled: true
+      annotations:
+        helm.sh/hook: 'pre-install,pre-upgrade'
+        helm.sh/hook-weight: '1'
+      initContainers: []
+      extraContainers: []
+
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
