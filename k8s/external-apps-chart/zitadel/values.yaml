@@ -4,7 +4,7 @@ targetRevision: 8.13.1
 chart: zitadel
 namespace: infra
 values: |
-  envVarsSecret: zitadel-vars-secret
+  envVarsSecret: zitadel
   zitadel:
     configmapConfig:
       ExternalSecure: true
