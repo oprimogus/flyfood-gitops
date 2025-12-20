@@ -6,6 +6,7 @@ namespace: infra
 values: |
   envVarsSecret: zitadel
   zitadel:
+    masterkeySecretName: zitadel
     configmapConfig:
       ExternalSecure: true
       ExternalDomain: auth.oprimoguslab.xyz
@@ -15,29 +16,15 @@ values: |
         Postgres:
           Host: postgres-cluster-rw.infra.svc.cluster.local
           Port: 5432
-          Database: zitadel-db
           MaxOpenConns: 20
           MaxIdleConns: 10
           MaxConnLifetime: 30m
           MaxConnIdleTime: 5m
-          User:
-            Username: zitadel
-            SSL:
-              Mode: verify-full
-          Admin:
-            Username: zitadel
-            SSL:
-              Mode: verify-full
-    initContainers: []
-    masterkeySecretName: zitadel
     debug:
       enabled: true
       annotations:
         helm.sh/hook: 'pre-install,pre-upgrade'
         helm.sh/hook-weight: '1'
-      initContainers: []
-      extraContainers: []
-
     dbSslCaCrtSecret: internal-ca-secret
     dbSslAdminCrtSecret: postgres-cluster-client-cert
     dbSslUserCrtSecret: postgres-cluster-client-cert
