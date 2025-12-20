@@ -8,7 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-cloudflare-prd
     kind: ClusterIssuer
-  commonName: oprimoguslab.xyz
   dnsNames:
   - oprimoguslab.xyz
   - auth.oprimoguslab.xyz
