@@ -6,7 +6,7 @@ namespace: infra
 values: |
   envVarsSecret: zitadel
   zitadel:
-    masterkeySecretName: zitadel
+    masterkeySecretName: zitadel-masterkey
     configmapConfig:
       ExternalSecure: true
       ExternalDomain: auth.oprimoguslab.xyz
