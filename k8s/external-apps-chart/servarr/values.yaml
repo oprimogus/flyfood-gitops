@@ -1,7 +1,7 @@
 name: servarr
 repoURL: https://charts.kubito.dev
 targetRevision: 1.2.2
-chart: kubitodev/servarr
+chart: servarr
 namespace: servarr
 values: |
     jellyfin:
