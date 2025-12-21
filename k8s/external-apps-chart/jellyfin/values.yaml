@@ -26,8 +26,8 @@ values: |
         size: 500Gi
         
     hostNetwork: true
-    port: 8096
+    port: 8097
     hostPort:
         enabled: true
-        port: 8096
+        port: 8097
 
