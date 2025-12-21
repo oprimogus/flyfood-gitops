@@ -29,6 +29,16 @@ values: |
         size: 2Gi
     
     qbittorrent:
+      initContainers:
+        - name: fix-perms
+          image: busybox
+          command:
+            - sh
+            - -c
+            - chown -R 1000:1000 /media && chmod -R 775 /media
+          volumeMounts:
+            - name: media
+              mountPath: /media
       persistence:
         enabled: true
         storageClass: "longhorn"
