@@ -21,6 +21,8 @@ values: |
           accessModes: ReadWriteOnce
           size: 500Gi
       ingress:
+        annotations:
+            traefik.ingress.kubernetes.io/router.middlewares: strip-path@kubernetescrd
         enabled: true
         path: /jellyfin
         hosts:
