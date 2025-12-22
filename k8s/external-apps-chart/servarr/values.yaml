@@ -20,8 +20,19 @@ values: |
           storageClass: "longhorn"
           accessModes: ReadWriteOnce
           size: 500Gi
+      ingress:
+        enabled: true
+        path: /jellyfin
+        hosts:
+          - oprimoguslab.xyz
+
     
     sonarr:
+      ingress:
+        enabled: true
+        path: /sonarr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -29,6 +40,11 @@ values: |
         size: 2Gi
     
     qbittorrent:
+      ingress:
+        enabled: true
+        path: /qbittorrent
+        hosts:
+          - oprimoguslab.xyz
       initContainers:
         - name: fix-perms
           image: busybox
@@ -46,6 +62,11 @@ values: |
         size: 2Gi
         
     prowlarr:
+      ingress:
+        enabled: true
+        path: /prowlarr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -53,6 +74,11 @@ values: |
         size: 2Gi
         
     jellyseerr:
+      ingress:
+        enabled: true
+        path: /jellyseerr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -60,6 +86,11 @@ values: |
         size: 2Gi
         
     bazarr:
+      ingress:
+        enabled: true
+        path: /bazarr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -67,6 +98,11 @@ values: |
         size: 2Gi
         
     radarr:
+      ingress:
+        enabled: true
+        path: /radarr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -74,6 +110,11 @@ values: |
         size: 2Gi
     
     lidarr:
+      ingress:
+        enabled: true
+        path: /lidarr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -81,6 +122,11 @@ values: |
         size: 2Gi
         
     cleanuparr:
+      ingress:
+        enabled: true
+        path: /cleanuparr
+        hosts:
+          - oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
