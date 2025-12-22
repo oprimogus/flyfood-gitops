@@ -1,9 +1,9 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: strip-app1
+  name: strip-path
   namespace: default
 spec:
-  stripPrefix:
-    prefixes:
-      - /app1
+  replacePathRegex:
+    regex: "^/[^/]+(.*)"
+    replacement: "$1"
