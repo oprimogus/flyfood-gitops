@@ -24,7 +24,7 @@ values: |
         enabled: true
         hosts:
           - jellyfin.oprimoguslab.xyz
-            path: /
+        path: /
 
     sonarr:
       ingress:
