@@ -22,7 +22,7 @@ values: |
           size: 500Gi
       ingress:
         annotations:
-            traefik.ingress.kubernetes.io/router.middlewares: strip-path@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: default-strip-path@kubernetescrd
         enabled: true
         path: /jellyfin
         hosts:
