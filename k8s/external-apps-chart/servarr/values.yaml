@@ -21,21 +21,15 @@ values: |
           accessModes: ReadWriteOnce
           size: 500Gi
       ingress:
-        annotations:
-            traefik.ingress.kubernetes.io/router.middlewares: default-strip-path@kubernetescrd
         enabled: true
-        path: /jellyfin
         hosts:
-          - oprimoguslab.xyz
+          - jellyfin.oprimoguslab.xyz
 
     sonarr:
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /sonarr
-                pathType: Prefix
+          - host: sonarr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -46,10 +40,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /qbittorrent
-                pathType: Prefix
+          - host: qbittorrent.oprimoguslab.xyz
       initContainers:
         - name: fix-perms
           image: busybox
@@ -70,10 +61,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /prowlarr
-                pathType: Prefix
+          - host: prowlarr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -84,10 +72,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /jellyseerr
-                pathType: Prefix
+          - host: jellyseerr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -98,10 +83,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /bazarr
-                pathType: Prefix
+          - host: bazarr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -112,10 +94,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /radarr
-                pathType: Prefix
+          - host: radarr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -126,10 +105,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /lidarr
-                pathType: Prefix
+          - host: lidarr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -140,10 +116,7 @@ values: |
       ingress:
         enabled: true
         hosts:
-          - host: oprimoguslab.xyz
-            paths:
-              - path: /cleanuparr
-                pathType: Prefix
+          - host: cleanuparr.oprimoguslab.xyz
       persistence:
         enabled: true
         storageClass: "longhorn"
