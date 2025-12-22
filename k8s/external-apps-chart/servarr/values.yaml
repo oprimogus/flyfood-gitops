@@ -24,12 +24,18 @@ values: |
         enabled: true
         hosts:
           - jellyfin.oprimoguslab.xyz
+            paths:
+                - path: /
+                  pathType: Prefix
 
     sonarr:
       ingress:
         enabled: true
         hosts:
           - host: sonarr.oprimoguslab.xyz
+            paths:
+                - path: /
+                  pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -41,6 +47,9 @@ values: |
         enabled: true
         hosts:
           - host: qbittorrent.oprimoguslab.xyz
+            paths:
+              - path: /
+                pathType: Prefix
       initContainers:
         - name: fix-perms
           image: busybox
@@ -62,6 +71,9 @@ values: |
         enabled: true
         hosts:
           - host: prowlarr.oprimoguslab.xyz
+            paths:
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -73,6 +85,9 @@ values: |
         enabled: true
         hosts:
           - host: jellyseerr.oprimoguslab.xyz
+            paths:
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -84,6 +99,9 @@ values: |
         enabled: true
         hosts:
           - host: bazarr.oprimoguslab.xyz
+            paths:
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -95,6 +113,9 @@ values: |
         enabled: true
         hosts:
           - host: radarr.oprimoguslab.xyz
+            paths:
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -106,6 +127,9 @@ values: |
         enabled: true
         hosts:
           - host: lidarr.oprimoguslab.xyz
+            paths:
+                - path: /
+                  pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -117,6 +141,9 @@ values: |
         enabled: true
         hosts:
           - host: cleanuparr.oprimoguslab.xyz
+            paths:
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
