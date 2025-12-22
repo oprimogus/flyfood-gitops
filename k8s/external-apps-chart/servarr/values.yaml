@@ -26,13 +26,13 @@ values: |
         hosts:
           - oprimoguslab.xyz
 
-    
     sonarr:
       ingress:
         enabled: true
-        path: /sonarr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /sonarr
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -42,9 +42,10 @@ values: |
     qbittorrent:
       ingress:
         enabled: true
-        path: /qbittorrent
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /qbittorrent
       initContainers:
         - name: fix-perms
           image: busybox
@@ -64,9 +65,10 @@ values: |
     prowlarr:
       ingress:
         enabled: true
-        path: /prowlarr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /prowlarr
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -76,9 +78,10 @@ values: |
     jellyseerr:
       ingress:
         enabled: true
-        path: /jellyseerr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /jellyseerr
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -88,9 +91,10 @@ values: |
     bazarr:
       ingress:
         enabled: true
-        path: /bazarr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /bazarr
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -100,9 +104,10 @@ values: |
     radarr:
       ingress:
         enabled: true
-        path: /radarr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /radarr
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -112,9 +117,10 @@ values: |
     lidarr:
       ingress:
         enabled: true
-        path: /lidarr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /lidarr
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -124,9 +130,10 @@ values: |
     cleanuparr:
       ingress:
         enabled: true
-        path: /cleanuparr
         hosts:
-          - oprimoguslab.xyz
+          - host: oprimoguslab.xyz
+            paths:
+              - path: /cleanuparr
       persistence:
         enabled: true
         storageClass: "longhorn"
