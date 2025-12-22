@@ -83,9 +83,9 @@ values: |
         enabled: true
         hosts:
           - host: jellyseerr.oprimoguslab.xyz
-            paths:
-              - path: /
-                pathType: Prefix
+            # paths:
+            #   - path: /
+            #     pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
