@@ -25,8 +25,8 @@ values: |
         hosts:
           - jellyfin.oprimoguslab.xyz
             paths:
-                - path: /
-                  pathType: Prefix
+              - path: /
+                pathType: Prefix
 
     sonarr:
       ingress:
@@ -34,8 +34,8 @@ values: |
         hosts:
           - host: sonarr.oprimoguslab.xyz
             paths:
-                - path: /
-                  pathType: Prefix
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
@@ -128,8 +128,8 @@ values: |
         hosts:
           - host: lidarr.oprimoguslab.xyz
             paths:
-                - path: /
-                  pathType: Prefix
+              - path: /
+                pathType: Prefix
       persistence:
         enabled: true
         storageClass: "longhorn"
