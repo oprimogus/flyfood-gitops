@@ -7,6 +7,24 @@ image:
   tag: 1.21.11
   pullPolicy: IfNotPresent
 
+initContainers:
+  enabled: true
+  containers:
+    - name: init-server-properties
+      image: busybox
+      command: ["sh", "-c"]
+      args:
+        - |
+          if [ ! -f /data/server.properties ]; then
+            echo "$PROPERTIES" > /data/server.properties
+          fi
+      envFrom:
+        - configMapRef:
+            name: minecraft-papermc-env
+      volumeMounts:
+        - name: server-data
+          mountPath: /data
+
 resources:
   min:
     cpu: 1000m
@@ -18,7 +36,7 @@ resources:
     enable: false
 
 env:
-    server.properties: |
+    PROPERTIES: |
         accept-transfers=false
         allow-flight=false
         broadcast-console-to-ops=true
