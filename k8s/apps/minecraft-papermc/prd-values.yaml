@@ -91,7 +91,7 @@ persistence:
   enabled: true
   volumes:
     - name: server-data
-      path: /server
+      path: /data
       size: 10Gi
       storageClass: longhorn
       accessModes:
