@@ -114,3 +114,8 @@ persistence:
       storageClass: longhorn
       accessModes:
         - ReadWriteOnce
+        
+ingress:
+  enabled: true
+  host: minecraft.oprimoguslab.xyz
+  path: /
