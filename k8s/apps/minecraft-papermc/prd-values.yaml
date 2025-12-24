@@ -1,6 +1,5 @@
 name: minecraft-papermc
 environment: prd
-port: 25565
 
 image:
   repository: marctv/minecraft-papermc-server
@@ -114,8 +113,12 @@ persistence:
       storageClass: longhorn
       accessModes:
         - ReadWriteOnce
-        
-# ingress:
-#   enabled: true
-#   host: minecraft.oprimoguslab.xyz
-#   path: /
+
+service:
+  enabled: true
+  type: ClusterIP
+  ports:
+    - name: minecraft
+      port: 25565
+      targetPort: 25565
+      protocol: TCP

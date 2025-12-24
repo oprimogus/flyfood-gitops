@@ -1,6 +1,5 @@
 name: flyfood-api
 environment: prd
-port: 3000
 
 annotations:
     keel.sh/policy: all
@@ -80,6 +79,15 @@ secrets:
     secret: flyfood-api-zitadel
     key: service-account-key
     mountPath: /service-account-key.json
+
+service:
+  enabled: true
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP
 
 ingress:
   enabled: true
