@@ -1,0 +1,29 @@
+name: playitgg
+environment: prd
+
+image:
+  repository: ghcr.io/playit-cloud/playit-agent
+  tag: 0.16
+  pullPolicy: IfNotPresent
+
+resources:
+  min:
+    cpu: 200m
+    memory: 128Mi
+  max:
+    cpu: 400m
+    memory: 256Mi
+  autoscaling:
+    enable: false
+
+# env:
+#     SECRET_KEY: 86b1d43a74a16e37248ffea250afefbb1e77bf56c431a7246f3cc55d9fa4a3c9
+
+# service:
+#   enabled: true
+#   type: ClusterIP
+#   ports:
+#     - name: minecraft
+#       port: 25565
+#       targetPort: 25565
+#       protocol: TCP
