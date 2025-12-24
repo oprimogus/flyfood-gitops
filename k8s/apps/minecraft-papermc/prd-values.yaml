@@ -115,7 +115,7 @@ persistence:
       accessModes:
         - ReadWriteOnce
         
-ingress:
-  enabled: true
-  host: minecraft.oprimoguslab.xyz
-  path: /
+# ingress:
+#   enabled: true
+#   host: minecraft.oprimoguslab.xyz
+#   path: /
