@@ -1,0 +1,15 @@
+# Arquivo: traefik-ingress-config.yaml
+# Pode ficar no seu repo de infra
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    ports:
+      minecraft:
+        port: 25565
+        expose: true
+        exposedPort: 25565
+        protocol: TCP
