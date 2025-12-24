@@ -20,15 +20,3 @@ secrets:
   - name: SECRET_KEY
     secret: playitgg
     key: secretKey
-
-# env:
-#     SECRET_KEY: 86b1d43a74a16e37248ffea250afefbb1e77bf56c431a7246f3cc55d9fa4a3c9
-
-# service:
-#   enabled: true
-#   type: ClusterIP
-#   ports:
-#     - name: minecraft
-#       port: 25565
-#       targetPort: 25565
-#       protocol: TCP
