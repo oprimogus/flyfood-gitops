@@ -1,0 +1,48 @@
+name: minecraft
+environment: prd
+
+image:
+  repository: itzg/minecraft-server
+  tag: java25-graalvm
+  pullPolicy: IfNotPresent
+
+resources:
+  min:
+    cpu: 1000m
+    memory: 2Gi
+  max:
+    cpu: 4000m
+    memory: 8Gi
+  autoscaling:
+    enable: false
+
+env:
+   MEMORY: 4G
+   MAX_MEMORY: 8G
+   TYPE: FABRIC
+   EULA: true
+   MAX_PLAYERS: 20
+   ALLOW_NETHER: true
+   ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+   SNOOPER_ENABLED: false
+   ONLINE_MODE: false
+   SERVER_NAME: oprimoguslab-server
+
+persistence:
+  enabled: true
+  volumes:
+    - name: server-data
+      path: /data
+      size: 10Gi
+      storageClass: longhorn
+      accessModes:
+        - ReadWriteOnce
+
+service:
+  enabled: true
+  type: ClusterIP
+  ports:
+    - name: minecraft
+      port: 25565
+      targetPort: 25565
+      protocol: TCP
