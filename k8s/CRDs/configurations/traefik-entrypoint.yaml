@@ -8,6 +8,9 @@ spec:
     ports:
       minecraft:
         port: 25565
-        expose: true
         exposedPort: 25565
+        expose:
+          default: true  # <--- Isso evita o erro de template no service.yaml
         protocol: TCP
+    additionalArguments:
+      - "--entryPoints.minecraft.address=:25565/tcp"
