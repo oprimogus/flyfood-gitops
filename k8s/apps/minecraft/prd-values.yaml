@@ -22,8 +22,8 @@ env:
    TYPE: FABRIC
    FABRIC_LAUNCHER_VERSION: 1.21.11
    FABRIC_LOADER_VERSION: 0.18.3
-   MODRINTH_PROJECTS: |
-     fabric-api
+   # MODRINTH_PROJECTS: |
+   #   fabric-api
    EULA: true
    MAX_PLAYERS: 20
    ALLOW_NETHER: true
