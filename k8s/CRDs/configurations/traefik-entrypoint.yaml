@@ -1,5 +1,3 @@
-# Arquivo: traefik-ingress-config.yaml
-# Pode ficar no seu repo de infra
 apiVersion: helm.cattle.io/v1
 kind: HelmChartConfig
 metadata:
