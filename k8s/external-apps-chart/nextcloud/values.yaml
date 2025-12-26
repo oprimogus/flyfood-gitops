@@ -5,9 +5,9 @@ chart: nextcloud
 namespace: infra
 values: |
     nextcloud:
-        host: drive.flyfood.com.br
+        host: drive.oprimogus.xyz
         trustedDomains:
-            - drive.flyfood.com.br
+            - drive.oprimogus.xyz
     service:
         port: 80
     ingress:
@@ -17,16 +17,16 @@ values: |
         pathType: Prefix
         tls:
           - hosts:
-              - drive.flyfood.com.br
+              - drive.oprimogus.xyz
             secretName: cert-tls
     persistence:
         enabled: true
-        storageClass: "longhorn"
+        storageClass: longhorn-retained
         accessMode: ReadWriteOnce
         size: 10Gi
         nextcloudData:
             enabled: true
-            storageClass: "longhorn"
+            storageClass: longhorn-retained
             accessMode: ReadWriteOnce
             size: 200Gi
         
