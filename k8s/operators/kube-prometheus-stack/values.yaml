@@ -6,7 +6,7 @@ namespace: monitoring
 values: |
     grafana:
       admin:
-        existingSecret: infra/kube-prometheus-stack
+        existingSecret: kube-prometheus-stack
         userKey: grafanaAdminUser
         passwordKey: grafanaAdminPassword
       persistence:
