@@ -4,3 +4,16 @@ targetRevision: 80.6.0
 chart: kube-prometheus-stack
 namespace: monitoring
 values: |
+    grafana:
+      admin:
+        existingSecret: infra/kube-prometheus-stack
+        userKey: grafanaAdminUser
+        passwordKey: grafanaAdminPassword
+      persistence:
+        enabled: true
+        type: sts
+        storageClassName: longhorn-retained
+        accessModes:
+          - ReadWriteOnce
+        size: 20Gi
+      
