@@ -1,6 +1,6 @@
 name: cert-manager
 repoURL: https://charts.jetstack.io
-targetRevision: 1.17.1
+targetRevision: 1.19.2
 chart: cert-manager
 namespace: cert-manager-system
 values: |
