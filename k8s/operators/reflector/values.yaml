@@ -1,7 +1,7 @@
 name: reflector
 repoURL: https://emberstack.github.io/helm-charts
 targetRevision: 9.2.0-develop.18
-chart: emberstack/reflector
+chart: reflector
 namespace: reflector
 values: |
       
