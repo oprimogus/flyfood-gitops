@@ -3,6 +3,9 @@ kind: Certificate
 metadata:
   name: cert
   namespace: prd
+  annotations:
+     reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+     reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "prd,dev,infra"
 spec:
   secretName: cert-tls
   issuerRef:
