@@ -3,10 +3,11 @@ kind: Certificate
 metadata:
   name: cert
   namespace: prd
-  annotations:
-     reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-     reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "prd,dev,infra"
 spec:
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "prd,dev,infra"
   secretName: cert-tls
   issuerRef:
     name: letsencrypt-cloudflare-prd
