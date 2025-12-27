@@ -116,7 +116,7 @@ values: |
                 pathType: Prefix
       persistence:
         enabled: true
-        storageClass: "longhorn"
+        storageClass: "longhorn-retained"
         accessModes: ReadWriteOnce
         size: 2Gi
     
